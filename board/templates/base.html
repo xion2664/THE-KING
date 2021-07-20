@@ -11,13 +11,16 @@
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
+    <!-- 헤더 -->
     <div id="header">
         <div class="nav-bar">
             <div class="logo-area">
                 <a href="">
+                    <!-- 로고 사진 -->
                     <img class="logo-img" src="{% static 'image/logo.png' %}" width="250" alt="Logo">
                 </a>
             </div>
+            <!-- 헤더 중앙 메뉴 -->
             <div class="center-area">
                 <div class="nav-bar-current-title">
                     <a href="" class="nav-bar-title">메인</a>
@@ -32,17 +35,29 @@
                     <a href="" class="nav-bar-title">방귀 차트</a>
                 </div>
             </div>
+            <!-- 헤더 오른쪽 메뉴 -->
             <div class="right-area">
+                <!-- 로그인 시 -->
+                {% if user.is_authenticated %}
+                <div>
+                    <a href="" class="nav-bar-title">마이페이지</a>
+                </div>
+                <div class="nav-bar-btn">
+                    <a href="" class="nav-bar-title">업로드</a>
+                </div>
+                <!-- 비로그인 시 -->
+                {% else %}
                 <div>
                     <a href="" class="nav-bar-title">로그인</a>
                 </div>
-                <div class="nav-bar-btn">
+                <div>
                     <a href="" class="nav-bar-title">회원가입</a>
                 </div>
+                {% endif %}
             </div>
         </div>
     </div>
-    {% block contents %}
+    {% block content %}
     {% endblock %}
 </body>
 </html>
