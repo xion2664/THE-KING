@@ -1,0 +1,48 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/reset.css'%}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% block link %}{% endblock %}?after">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <div id="header">
+        <div class="nav-bar">
+            <div class="logo-area">
+                <a href="">
+                    <img class="logo-img" src="{% static 'image/logo.png' %}" width="250" alt="Logo">
+                </a>
+            </div>
+            <div class="center-area">
+                <div class="nav-bar-current-title">
+                    <a href="" class="nav-bar-title">메인</a>
+                </div>
+                <div>
+                    <a href="" class="nav-bar-title">대변 차트</a>
+                </div>
+                <div>
+                    <a href="" class="nav-bar-title">소변 차트</a>
+                </div>
+                <div>
+                    <a href="" class="nav-bar-title">방귀 차트</a>
+                </div>
+            </div>
+            <div class="right-area">
+                <div>
+                    <a href="" class="nav-bar-title">로그인</a>
+                </div>
+                <div class="nav-bar-btn">
+                    <a href="" class="nav-bar-title">회원가입</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% block contents %}
+    {% endblock %}
+</body>
+</html>
