@@ -15,7 +15,7 @@
     <div id="header">
         <div class="nav-bar">
             <div class="logo-area">
-                <a href="">
+                <a href="{% url 'home' %}">
                     <!-- 로고 사진 -->
                     <img class="logo-img" src="{% static 'image/logo.png' %}" width="250" alt="Logo">
                 </a>
@@ -23,7 +23,7 @@
             <!-- 헤더 중앙 메뉴 -->
             <div class="center-area">
                 <div class="nav-bar-current-title">
-                    <a href="" class="nav-bar-title">메인</a>
+                    <a href="{% url 'home' %}" class="nav-bar-title">메인</a>
                 </div>
                 <div>
                     <a href="" class="nav-bar-title">대변 차트</a>
@@ -40,18 +40,21 @@
                 <!-- 로그인 시 -->
                 {% if user.is_authenticated %}
                 <div>
-                    <a href="" class="nav-bar-title">마이페이지</a>
+                    <a href="{% url 'mypage' %}" class="nav-bar-title">마이페이지</a>
                 </div>
                 <div class="nav-bar-btn">
-                    <a href="" class="nav-bar-title">업로드</a>
+                    <a href="{% url 'create' %}" class="nav-bar-title">업로드</a>
+                </div>
+                <div class="nav-bar-btn">
+                    <a href="{% url 'logout' %}" class="nav-bar-title">로그아웃</a>
                 </div>
                 <!-- 비로그인 시 -->
                 {% else %}
                 <div>
-                    <a href="" class="nav-bar-title">로그인</a>
+                    <a href="{% url 'login' %}" class="nav-bar-title">로그인</a>
                 </div>
                 <div>
-                    <a href="" class="nav-bar-title">회원가입</a>
+                    <a href="{% url 'signup' %}" class="nav-bar-title">회원가입</a>
                 </div>
                 {% endif %}
             </div>
