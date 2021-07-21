@@ -1,0 +1,102 @@
+@font-face {
+    font-family: 'NanumSquareRound';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html{
+    font-family: 'NanumSquareRound';
+    font-size: 10px;
+}
+
+#main{
+    margin: 50px 0px;
+    display: flex;
+    justify-content: center;
+}
+
+.main-container{
+    width: 1000px;
+}
+
+.main-contents-box{
+    width: 1000px;
+    height: 800px;
+    border: 0.5px solid #dddddd;
+    border-radius: 12px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.chart-top{
+    display: flex;
+    flex-direction: column;
+    margin: 50px;
+}
+
+.chart-title{
+    font-size: 2.6rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.chart-date{
+    font-size: 2.0rem;
+    color: #B4846C;
+}
+
+.chart-center{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.chart-nav-bar{
+    background-color: #B4846C;
+}
+
+.chart-nav{
+    height: 50px;
+    line-height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.chart-data{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.chart-nav-title{
+    width: 100px;
+    font-size: 1.8rem;
+    text-align: center;
+    color: white;
+}
+
+.chart-line{
+    
+}
+
+.chart-data{
+    height: 110px;
+    line-height: 110px;
+    text-decoration-line: none;
+    border-bottom: 1px solid #B4846C;
+}
+
+.chart-nav-content{
+    width: 100px;
+    font-size: 1.8rem;
+    text-align: center;
+    color: #B4846C;
+}
+
+.current-content{
+    font-weight: bold;
+}
