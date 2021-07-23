@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}로그인{% endblock %}
-{%block link%}{%static 'css/font.css'%}{%endblock%}
 {%block link%}{%static 'css/login.css'%}{%endblock%}
 
 {% block content %}
@@ -10,8 +9,8 @@
         <div class="content">
             <div class="title">Login</div>
             <form action="{% url 'login' %}" method="POST" enctype="multipart/form-data" class="form">
-                <input id="id" type="text" class="input" name="id" placeholder="ID">
-                <input id="pw" type="password" class="input" name="pw" placeholder="PW">
+                <input id="id" type="text" class="input" name="username" placeholder="ID">
+                <input id="pw" type="password" class="input" name="password" placeholder="PW">
                 <button type="submit" class="signUp">Sign In</button>
             </form>
             <div class="message">
