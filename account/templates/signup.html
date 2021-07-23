@@ -1,17 +1,26 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}회원가입{% endblock %}
+{%block link%}{%static 'css/font.css'%}{%endblock%}
+{%block link%}{%static 'css/signup.css'%}{%endblock%}
 
 {% block content %}
-    <h2>회원가입</h2>
-    <form method="POST" action="{% url 'signup' %}" enctype="multipart/form-data">
-        {% csrf_token %}
-        <input type="text" name="username" placeholder="아이디를 입력하세요. "><br>
-        <input type="text" name="nickname" placeholder="별명을 입력하세요. "><br>
-        <input type="file" name="profile" value="프로필이미지를 업로드하세요. "><br>
-        <input type="password" name="password" placeholder="비밀번호를 입력하세요. "><br>
-        <input type="password" name="password2" placeholder="비밀번호를 한 번 더 입력하세요. "><br>
-        <button>회원가입</button>
-    </form>
+
+<div class="container">
+    <div class="content">
+        <div class="title">Register</div>
+        <form action="" method="POST" enctype="multipart/form-data" class="form">
+            <input id="nickname" type="text" class="input" name="nickname" placeholder="닉네임">
+            <input id="id" type="text" class="input" name="id" placeholder="ID">
+            <input id="pw" type="password" class="input" name="pw" placeholder="PW">
+            <input id="pwCheck" type="password" class="input" name="pwCheck" placeholder="PW Check">
+            <input id="profileImg" type="file" class="input" name="image"></p>
+            <button type="submit" class="signUp">Sign Up</button>
+        </form>
+        <div class="message">
+            SSAM의 세계에 오신 것을 환영합니다.
+        </div>
+    </div>
+</div>
 
 {% endblock %}
