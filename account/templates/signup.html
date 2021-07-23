@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}회원가입{% endblock %}
-{%block link%}{%static 'css/font.css'%}{%endblock%}
 {%block link%}{%static 'css/signup.css'%}{%endblock%}
 
 {% block content %}
@@ -11,10 +10,10 @@
         <div class="title">Register</div>
         <form action="" method="POST" enctype="multipart/form-data" class="form">
             <input id="nickname" type="text" class="input" name="nickname" placeholder="닉네임">
-            <input id="id" type="text" class="input" name="id" placeholder="ID">
-            <input id="pw" type="password" class="input" name="pw" placeholder="PW">
-            <input id="pwCheck" type="password" class="input" name="pwCheck" placeholder="PW Check">
-            <input id="profileImg" type="file" class="input" name="image"></p>
+            <input id="id" type="text" class="input" name="username" placeholder="ID">
+            <input id="pw" type="password" class="input" name="password" placeholder="PW">
+            <input id="pwCheck" class="input" type="password" name="password2" placeholder="PW Check">
+            <input id="profileImg" class="input" type="file" name="profile"></p>
             <button type="submit" class="signUp">Sign Up</button>
         </form>
         <div class="message">
