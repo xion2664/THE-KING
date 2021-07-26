@@ -1,12 +1,11 @@
 @font-face {
-    font-family: 'ELAND_Choice_M';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts-20-12@1.0/ELAND_Choice_M.woff') format('woff');
+    font-family: 'NanumSquareRound';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
-
 html{
-    font-family: 'ELAND_Choice_M';
+    font-family: 'NanumSquareRound';
     font-size: 10px;
 }
 
