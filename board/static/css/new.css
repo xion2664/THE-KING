@@ -36,7 +36,7 @@ html{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 50px;
+    margin: 50px 50px 30px;
     font-size: 3.5rem;
 }
 
@@ -64,7 +64,7 @@ html{
 
 .top-border{
     width: 90%;
-    margin: 0px 60px 50px;
+    margin: 0px 60px 40px;
     border-radius: 30px;
     border-bottom: 3px solid #DDDDDD;
 }
@@ -75,13 +75,19 @@ html{
     flex-direction: column;
 }
 
+.mid-title{
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
 .box-area{
     width: 100%;
     height: 40px;
     border-radius: 10px;
     border: 2px solid #B4846C;
     box-shadow: 3px 3px 5px #888888;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 
 .select-area{
@@ -98,4 +104,8 @@ html{
 .detail-area{
     display: flex;
     justify-content: space-between;
+}
+
+#image_container img{
+    max-width: 200px;
 }
