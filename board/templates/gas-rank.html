@@ -1,0 +1,77 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% block link %}{% static 'css/total-rank.css' %}{% endblock %}
+{% block title %}The King{% endblock %}
+{% block content %}
+
+<div id="main">
+    <div class="main-container">
+        <div class="main-contents-box">
+            <div class="chart-top">
+                <p class="chart-title">방귀 차트</p>
+                <p class="chart-date">2021.08.01 ></p>
+            </div>
+            <div class="top-border"></div>
+            <div class="chart-center">
+                <div class="chart-nav-bar">
+                    <ul>
+                        <li class="chart-nav">
+                            <p class="chart-nav-title">순위</p>
+                            <p class="chart-nav-title">프로필</p>
+                            <p class="chart-nav-title">닉네임</p>
+                            <p class="chart-nav-title">대변</p>
+                            <p class="chart-nav-title">소변</p>
+                            <p class="chart-nav-title current-content">방귀</p>
+                            <p class="chart-nav-title">통합점수</p>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <div>
+                        <div class="chart-line">
+                            <a href=""  class="chart-data">
+                                <p class="chart-nav-content">1</p>
+                                <img class="chart-nav-content" src="" alt="프로필">
+                                <p class="chart-nav-content">채희찬</p>
+                                <p class="chart-nav-content">150점</p>
+                                <p class="chart-nav-content">50점</p>
+                                <p class="chart-nav-content current-content">50점</p>
+                                <p class="chart-nav-content">250점</p>
+                            </a>
+                        </div>
+                    </div>
+                    {% for row in rank_gas %}
+                        <div class="tr">
+                            <div class="th">
+                                <!-- 등수를 어떻게 처리해야 할지 (user에 넣을지 for로 계산해야 할지) -->
+                                <strong></strong>
+                            </div>
+                            <div class="td">
+                                <img src="{{ row.profile }}" alt="프로필사진">
+                            </div>
+                            <div class="td">
+                                <p>{{ row.nickname }}</p>
+                            </div>
+                            <div class="td">
+                                <p>{{ row.big_score }}</p>
+                            </div>
+                            <div class="td">
+                                <p>{{ row.small_score }}</p>
+                            </div>
+                            <div class="td">
+                                <strong><p>{{ row.gas_score }}</p></strong>
+                            </div>
+                            <div class="td">
+                                <p>{{ row.total_score }}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
