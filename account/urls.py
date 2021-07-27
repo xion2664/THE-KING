@@ -8,4 +8,7 @@ urlpatterns = [
     path('delete/', views.user_delete, name="delete"),
     path('mypage/', views.mypage, name="mypage"),
     path('update/', views.user_update, name='update'),
+    path('rank/', views.rank, name='rank'),
+    path('history/', views.history, name='history'),
+    path('people/', views.people, name='people'),
 ]

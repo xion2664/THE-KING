@@ -92,3 +92,10 @@ def user_update(request):
     else:
 	    user_change_form = CustomUserChangeForm(instance = request.user)
 	    return render(request, 'people.html', {'user_change_form':user_change_form})
+
+
+def history(request) :
+    return render(request, 'history.html')
+
+def people(request) :
+    return render(request, 'people.html')
