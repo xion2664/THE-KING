@@ -17,7 +17,7 @@ class Board(models.Model) :
     # 생리활동 이미지
     image = models.ImageField(upload_to='board/', blank=True, null=True)
     # 생리활동 내용
-    body = models.TextField()
+    body = models.TextField(null=True)
  
     def __str__(self) :
         return self.author.username
