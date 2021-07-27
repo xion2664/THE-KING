@@ -1,5 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
+from .forms import CustomUserChangeForm
+from django.contrib.auth.forms import UserChangeForm
+from django.contrib.auth.decorators import login_required
 
 from .models import User
 from django.contrib import auth
@@ -49,6 +52,17 @@ def user_logout(request) :
     logout(request)
     return redirect('home')
 
+#회원 탈퇴
+def user_delete(request) :
+    if request.method == "POST" :
+        password_del = request.POST["password_del"]
+        user = request.user
+        if check_password(password_del, user.password) :
+            user.delete()
+            return redirect('/')
+    else :
+        return render(request, 'delete.html')
+
 
 # 랭킹 정렬
 def rank(request) :
@@ -61,4 +75,20 @@ def rank(request) :
 
 # 마이페이지
 def mypage(request) :
-    return render(request, 'mypage.html')
+    #로그인 안된 사용자 접근 제한
+    if request.method == 'GET':
+        return render(request, 'mypage.html')
+
+
+# 회원 정보 수정
+@login_required
+def user_update(request):
+    if request.method == 'POST':
+        user_change_from = CustomUserChangeForm(request.POST, instance=request.user)
+        if user_change_form.is_valid():
+            user_change_form.save()
+            return redirect('people', request.user.username)
+    
+    else:
+	    user_change_form = CustomUserChangeForm(instance = request.user)
+	    return render(request, 'people.html', {'user_change_form':user_change_form})
