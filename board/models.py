@@ -9,9 +9,9 @@ class Board(models.Model) :
         ('3', '방귀')
     }
     # account앱의 User모델 ForeignKey
-    author = models.ForeignKey('account.User', on_delete=models.CASCADE)
+    author = models.ForeignKey('account.User', on_delete = models.CASCADE)
     # 글 생성 날짜, 시간
-    created_at = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField()
     # 생리활동 3가지 선택
     choice = models.CharField(max_length=80, choices=ACTIVITY_CHOICES, null=True)
     # 생리활동 이미지
