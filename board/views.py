@@ -20,6 +20,7 @@ def edit(request, id) :
         edit_board.choice = request.POST['choice']
         edit_board.created_at= timezone.datetime.now()
         edit_board.image = request.FILES.get('image')
+        edit_board.body = request.POST['body']
         edit_board.save()
         return redirect('detail', edit_board.id)
     else :
@@ -32,14 +33,15 @@ def upload(request) :
     if request.method == "POST":
         # POST 방식일떄 새로운 글 생성
         new_board = Board()
-        new_board.choice= request.POST['choice'] # 생리활동 종류
-        new_board.created_at = timezone.datetime.now() # 생리활동 날짜, 시간
-        new_board.image = request.FILES.get('image') # 생리활동 이미지
-        
+        new_board.choice= request.POST['choice']
+        new_board.created_at = timezone.datetime.now() 
+        new_board.image = request.FILES.get('image') 
+        new_board.body = request.POST['body']
         user_id = request.user.id
         user = User.objects.get(id = user_id)
         new_board.author = user
-        new_board.save()
+        new_board.save() 
+ 
         return redirect('home')
     else :
         # GET 방식일때 단순 페이지 이동

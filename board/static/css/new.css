@@ -25,6 +25,10 @@ html{
     border: 0.5px solid #dddddd;
     border-radius: 12px;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);;
+}
+
+.form{
+    width: 100%;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -105,6 +109,8 @@ html{
     justify-content: space-between;
 }
 
-#image_container img{
-    max-width: 200px;
+.content-textbox{
+    border-radius: 10px;
+    border: 2px solid #B4846C;
+    resize: none;
 }

@@ -7,48 +7,65 @@
 <div id="main">
     <div class="main-container">
         <div class="main-contents-box">
-            <div class="container-top-area">
-                <p class="top-title">생리활동 업로드</p>
-                <div class="right-area">
-                    <button class="top-btn white-btn">취소</button>
-                    <button class="top-btn brown-btn">등록</button>
-                </div>
-            </div>
-            <div class="top-border"></div>
-            <div class="container-main-area">
-                <div class="mid-title">
-                    <p>배출물 종류</p>
-                </div>
-                <div class="box-area">
-                    <select class="select-area" name="type">
-                        <option value="">생리활동을 선택해 주세요.</option>
-                        <option value="big">대변</option>
-                        <option value="small">소변</option>
-                        <option value="bas">방귀</option>
-                    </select>
-                </div>
-                <div class="mid-title">
-                    <p>배출 일시</p>
-                </div>
-                <div class="box-area">
-                    <input class="select-area" type="datetime-local">
-                </div>
-                <div class="detail-area">
-                    <div class="image-area"> 
-                        <div class="mid-title">
-                            <p>인증 사진</p>
-                        </div>
-                        <input type="image">
-                    </div>
-                    <div class="content-area">
-                        <div class="mid-title">
-                            <p>내용</p>
-                        </div>
-                        <textarea name="" id="" cols="80" rows="15"></textarea>
+            <!-- form 시작 -->
+            <form class="form" action="{% url 'create' %}" method="POST" enctype="multipart/form-data">
+                <!-- container-top-area 시작 -->
+                {% csrf_token %}
+                <div class="container-top-area">
+                    <p class="top-title">생리활동 업로드</p>
+                    <div class="right-area">
+                        <button type="button" onclick="history.go(-1)" class="top-btn white-btn">취소</button>
+                        <button type="submit" class="top-btn brown-btn">등록</button>
                     </div>
                 </div>
-            </div>
+                <!-- container-top-area 끝 -->
+                <div class="top-border"></div>
+                <!-- container-main-area 시작 -->
+                <div class="container-main-area">
+                    <!-- 배출물 종류 시작 -->
+                    <div class="mid-title">
+                        <p>배출물 종류</p>
+                    </div>
+                    <div class="box-area">
+                        <select class="select-area" name="type">
+                            <option value="">생리활동을 선택해 주세요.</option>
+                            <option value="big">대변</option>
+                            <option value="small">소변</option>
+                            <option value="bas">방귀</option>
+                        </select>
+                    </div>
+                    <!-- 배출물 종류 끝 -->
+                    <!-- 배출 일시 시작 -->
+                    <div class="mid-title">
+                        <p>배출 일시</p>
+                    </div>
+                    <div class="box-area">
+                        <input class="select-area" type="datetime-local">
+                    </div>
+                    <!-- 배출 일시 끝 -->
+                    <div class="detail-area">
+                        <!-- 인증 시진 시작 -->
+                        <div class="image-area"> 
+                            <div class="mid-title">
+                                <p>인증 사진</p>
+                            </div>
+                            <input type="image">
+                        </div>
+                        <!-- 인증 사진 끝 -->
+                        <!-- 내용 시작 -->
+                        <div class="content-area">
+                            <div class="mid-title">
+                                <p>내용</p>
+                            </div>
+                            <textarea class="content-textbox" name="" id="" cols="80" rows="15"></textarea>
+                        </div>
+                        <!-- 내용 끝 -->
+                    </div>
+                </div>
+                <!-- container-main-area 끝 -->
+            </form>
         </div>
+        <!-- main-contents-box 끝 -->
     </div>
 </div>
 
