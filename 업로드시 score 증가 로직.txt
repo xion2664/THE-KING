@@ -1,0 +1,24 @@
+score 증가 로직
+
+1. 업로드 버튼 클릭
+2. choice필드에 '대변' 선택
+3. 시간과 내용 입력 후 등록 클릭
+4. 등록 클릭과 동시에 User 모델의 big_score, total_score에 1이 증가한다.
+
+
+# 업로드 디테일 페이지로 리다이렉트
+def upload(request, id) :
+    if request.method == "POST":
+        # POST 방식일떄 새로운 글 생성
+        new_board = Board()
+        new_board.choice= request.POST.get('choice')
+        new_board.created_at = timezone.datetime.now() 
+        new_board.image = request.FILES.get('image') 
+        new_board.body = request.POST.get('body')
+        user_id = request.user.id
+        user = User.objects.get(id = user_id)
+        new_board.author = user
+        new_board.save()
+        re_board = Board.objects.get(id = id)
+ 
+        return redirect('detail', re_board.id)
