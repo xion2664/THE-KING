@@ -12,6 +12,10 @@
 .scoreDiv {
     flex-direction: column;
 }
+.scoreImg {
+    width: auto;
+    height: 50px;
+}
 
 /* 슬라이드 */
 .section input[id*="slide"] {display:none;}

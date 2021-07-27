@@ -1,25 +1,30 @@
-{% extends 'base.html' %}
 {% load static %}
-{% block title %}회원가입{% endblock %}
-{%block link%}{%static 'css/signup.css'%}{%endblock%}
-
-{% block content %}
-
-<div class="container">
-    <div class="content">
-        <div class="title">Register</div>
-        <form action="" method="POST" enctype="multipart/form-data" class="form">
-            <input id="nickname" type="text" class="input" name="nickname" placeholder="닉네임">
-            <input id="id" type="text" class="input" name="username" placeholder="ID">
-            <input id="pw" type="password" class="input" name="password" placeholder="PW">
-            <input id="pwCheck" class="input" type="password" name="password2" placeholder="PW Check">
-            <input id="profileImg" class="input" type="file" name="profile"></p>
-            <button type="submit" class="submit">Sign Up</button>
-        </form>
-        <div class="message">
-            SSAM의 세계에 오신 것을 환영합니다.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{%static 'css/signup.css'%}">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <div class="title">Register</div>
+            <form action="" method="POST" enctype="multipart/form-data" class="form">
+                {% csrf_token %}
+                <input id="nickname" type="text" class="input" name="nickname" placeholder="닉네임">
+                <input id="id" type="text" class="input" name="username" placeholder="ID">
+                <input id="pw" type="password" class="input" name="password" placeholder="PW">
+                <input id="pwCheck" class="input" type="password" name="password2" placeholder="PW Check">
+                <input id="profileImg" class="input" type="file" name="profile"></p>
+                <button type="submit" class="submit">Sign Up</button>
+            </form>
+            <div class="message">
+                SSAM의 세계에 오신 것을 환영합니다.
+            </div>
         </div>
     </div>
-</div>
-
-{% endblock %}
+</body>
+</html>
