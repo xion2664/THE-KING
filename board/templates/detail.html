@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% load static %}
+{% block link %}{% static 'css/new.css' %}{% endblock %}
+{% block title %}The King{% endblock %}
+{% block content %}
+
+<div id="main">
+    <div class="main-container">
+        <div class="main-contents-box">
+            <!-- container-top-area 시작 -->
+            <div class="container-top-area">
+                <p class="top-title">생리활동 자세히 보기</p>
+                <div class="right-area">
+                    <button type="button" onclick="history.go(-1)" class="top-btn white-btn">취소</button>
+                    <button type="button" onclick="location.href='{% url \'edit\' %}'" class="top-btn brown-btn">수정</button>
+                </div>
+            </div>
+            <!-- container-top-area 끝 -->
+            <div class="top-border"></div>
+            <!-- container-main-area 시작 -->
+            <div class="container-main-area">
+                <!-- 배출물 종류 시작 -->
+                <div class="mid-title">
+                    <p>배출물 종류</p>
+                </div>
+                <div class="box-area">
+                    <p class="select-area">{{ board.choice }}</p>
+                </div>
+                <!-- 배출물 종류 끝 -->
+                <!-- 배출 일시 시작 -->
+                <div class="mid-title">
+                    <p>배출 일시</p>
+                </div>
+                <div class="box-area">
+                    <p class="selec-area">{{ board.created_at }}</p>
+                </div>
+                <!-- 배출 일시 끝 -->
+                <div class="detail-area">
+                    <!-- 인증 시진 시작 -->
+                    <div class="image-area"> 
+                        <div class="mid-title">
+                            <p>인증 사진</p>
+                        </div>
+                        <img src="{{ board.image }}" alt="">
+                    </div>
+                    <!-- 인증 사진 끝 -->
+                    <!-- 내용 시작 -->
+                    <div class="content-area">
+                        <div class="mid-title">
+                            <p>내용</p>
+                        </div>
+                        <textarea class="content-textbox" name="" id="" cols="80" rows="15">{{ board.body }}</textarea>
+                    </div>
+                    <!-- 내용 끝 -->
+                </div>
+            </div>
+            <!-- container-main-area 끝 -->
+        </div>
+        <!-- main-contents-box 끝 -->
+    </div>
+</div>
+
+{% endblock %}
