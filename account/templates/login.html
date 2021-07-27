@@ -9,6 +9,7 @@
         <div class="content">
             <div class="title">Login</div>
             <form action="{% url 'login' %}" method="POST" enctype="multipart/form-data" class="form">
+                {% csrf_token %}
                 <input id="id" type="text" class="input" name="username" placeholder="ID">
                 <input id="pw" type="password" class="input" name="password" placeholder="PW">
                 <button type="submit" class="submit">Sign In</button>
