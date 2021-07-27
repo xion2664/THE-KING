@@ -24,20 +24,21 @@
 				<a>
 					<div class="textbox">
 						<h3>1위</h3>
-						<h3>(닉네임)</h3>
-						<h3>(score)point!</h3>
+						<img src="{{user.profile.url}}" alt="사진">
+						<h3>{{user.nickname}}</h3>
+						<h3>{{user.total_score}} point!</h3>
 						<div class="scoreDiv">
 							<div class="score">
-								<img src="{% static 'image/poopIcon_white.png' %}" alt="큰거" class="scoreImg" width="100px">
-								<p>(score)</p>
+								<img src="{% static 'image/poopIcon_white.png' %}" alt="큰거" class="scoreImg">
+								<p>{{user.big_score}}</p>
 							</div>
 							<div class="score">
-								<img src="{% static 'image/peeIcon_white.png' %}" alt="작은거" class="scoreImg" width="100px">
-								<p>(score)</p>
+								<img src="{% static 'image/peeIcon_white.png' %}" alt="작은거" class="scoreImg">
+								<p>{{user.small_score}}</p>
 							</div>
 							<div class="score">
-								<img src="{% static 'image/fartIcon_white.svg' %}" alt="가스" class="scoreImg" height="50px">
-								<p>(score)</p>
+								<img src="{% static 'image/fartIcon_white.svg' %}" alt="가스" class="scoreImg">
+								<p>{{user.gas_score}}</p>
 							</div>
 						</div>
 					</div>
