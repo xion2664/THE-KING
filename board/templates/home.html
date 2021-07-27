@@ -1,0 +1,120 @@
+{%extends "base.html" %}
+{%load static%}        
+        
+{%block title%}Home{%endblock%}
+{%block link%}{%static 'css/home.css'%}{%endblock%}
+{%block content%}
+
+<div class="section">
+	<input type="radio" name="slide" id="slide01" checked>
+	<input type="radio" name="slide" id="slide02">
+	<input type="radio" name="slide" id="slide03">
+	<div class="slidewrap">
+		
+		<!-- 페이징 -->
+		<ul class="slide-pagelist">
+			<li><label for="slide01"></label></li>
+			<li><label for="slide02"></label></li>
+			<li><label for="slide03"></label></li>
+		</ul>
+
+		<ul class="slidelist">
+			<!-- 슬라이드 영역 -->
+			<li class="slideitem">
+				<a>
+					<div class="textbox">
+						<h3>1위</h3>
+						<h3>(닉네임)</h3>
+						<h3>(score)point!</h3>
+						<div class="scoreDiv">
+							<div class="score">
+								<img src="{% static 'image/poopIcon_white.png' %}" alt="큰거" class="scoreImg" width="100px">
+								<p>(score)</p>
+							</div>
+							<div class="score">
+								<img src="{% static 'image/peeIcon_white.png' %}" alt="작은거" class="scoreImg" width="100px">
+								<p>(score)</p>
+							</div>
+							<div class="score">
+								<img src="{% static 'image/fartIcon_white.svg' %}" alt="가스" class="scoreImg" height="50px">
+								<p>(score)</p>
+							</div>
+						</div>
+					</div>
+					<img class="slideImg" src="{% static 'image/theKing.svg' %}">
+				</a>
+			</li>
+			<li class="slideitem">
+				<a>
+					<div class="textbox">
+						<h3>2위</h3>
+						<h3>(닉네임)</h3>
+						<h3>(score)point!</h3>
+						<div class="scoreDiv">
+							<div class="score">
+								<img src="{% static 'image/poopIcon_white.png' %}" alt="큰거" class="scoreImg">
+								<p>(score)</p>
+							</div>
+							<div class="score">
+								<img src="{% static 'image/peeIcon_white.png' %}" alt="작은거" class="scoreImg">
+								<p>(score)</p>
+							</div>
+							<div class="score">
+								<img src="{% static 'image/fartIcon_white.svg' %}" alt="가스" class="scoreImg">
+								<p>(score)</p>
+							</div>
+						</div>
+					</div>
+					<img src="{% static 'image/slideImg.png' %}">
+				</a>
+			</li>
+			<li class="slideitem">
+				<a>
+					<div class="textbox">
+						<h3>3위</h3>
+						<h3>(닉네임)</h3>
+						<h3>(score)point!</h3>
+						<div class="scoreDiv">
+							<div class="score">
+								<img src="{% static 'image/poopIcon_white.png' %}" alt="큰거" class="scoreImg" id="poop">
+								<p>(score)</p>
+							</div>
+							<div class="score">
+								<img src="{% static 'image/peeIcon_white.png' %}" alt="작은거" class="scoreImg" id="pee">
+								<p>(score)</p>
+							</div>
+							<div class="score">
+								<img src="{% static 'image/fartIcon_white.svg' %}" alt="가스" class="scoreImg" id="fart">
+								<p>(score)</p>
+							</div>
+						</div>
+					</div>
+					<img src="{% static 'image/slideImg.png' %}">
+				</a>
+			</li class="slideitem">
+
+			<!-- 좌,우 슬라이드 버튼 -->
+			<div class="slide-control">
+				<div>
+					<label for="slide03" class="left"></label>
+					<label for="slide02" class="right"></label>
+				</div>
+				<div>
+					<label for="slide01" class="left"></label>
+					<label for="slide03" class="right"></label>
+				</div>
+				<div>
+					<label for="slide02" class="left"></label>
+					<label for="slide01" class="right"></label>
+				</div>
+			</div>
+
+		</ul>
+		
+	</div>
+
+	
+</div>
+
+
+{%endblock%}

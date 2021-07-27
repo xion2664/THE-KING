@@ -1,12 +1,11 @@
 @font-face {
-    font-family: 'ELAND_Choice_M';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts-20-12@1.0/ELAND_Choice_M.woff') format('woff');
+    font-family: 'NanumSquareRound';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
-
 html{
-    font-family: 'ELAND_Choice_M';
+    font-family: 'NanumSquareRound';
     font-size: 10px;
 }
 
@@ -14,7 +13,6 @@ html{
     height: 90px;
     display: flex;
     justify-content: center;
-    border-bottom: 1px solid #dddddd;
     background-color: #B4846C;
 }
 
@@ -23,6 +21,10 @@ html{
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.logo-area{
+    width: 300px;
 }
 
 .center-area{
@@ -43,7 +45,7 @@ html{
 }
 
 .right-area{
-    width: 250px;
+    width: 300px;
     display: flex;
     justify-content:flex-end;
     align-items: center;
