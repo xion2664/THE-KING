@@ -11,25 +11,32 @@
 	<input type="radio" name="slide" id="slide03">
 	<div class="slidewrap">
 		
+		<!-- 페이징 -->
+		<ul class="slide-pagelist">
+			<li><label for="slide01"></label></li>
+			<li><label for="slide02"></label></li>
+			<li><label for="slide03"></label></li>
+		</ul>
+
 		<ul class="slidelist">
 			<!-- 슬라이드 영역 -->
 			<li class="slideitem">
 				<a>
 					<div class="textbox">
-						<h3>1등</h3>
-						<h4>(닉네임)</h4>
-						<h5>(score)point!</h5>
+						<h3>1위</h3>
+						<h3>(닉네임)</h3>
+						<h3>(score)point!</h3>
 						<div class="scoreDiv">
 							<div class="score">
-								<img src="{% static 'image/poopIcon.png' %}" alt="큰거" class="scoreImg">
+								<img src="{% static 'image/poopIcon_white.png' %}" alt="큰거" class="scoreImg" width="100px">
 								<p>(score)</p>
 							</div>
 							<div class="score">
-								<img src="{% static 'image/peeIcon.png' %}" alt="작은거" class="scoreImg">
+								<img src="{% static 'image/peeIcon_white.png' %}" alt="작은거" class="scoreImg" width="100px">
 								<p>(score)</p>
 							</div>
 							<div class="score">
-								<img src="{% static 'image/fartIcon.png' %}" alt="가스" class="scoreImg">
+								<img src="{% static 'image/fartIcon_white.svg' %}" alt="가스" class="scoreImg" height="50px">
 								<p>(score)</p>
 							</div>
 						</div>
@@ -40,20 +47,20 @@
 			<li class="slideitem">
 				<a>
 					<div class="textbox">
-						<h3>1등</h3>
-						<h4>(닉네임)</h4>
-						<h5>(score)point!</h5>
+						<h3>2위</h3>
+						<h3>(닉네임)</h3>
+						<h3>(score)point!</h3>
 						<div class="scoreDiv">
 							<div class="score">
-								<img src="{% static 'image/poopIcon.png' %}" alt="큰거" class="scoreImg">
+								<img src="{% static 'image/poopIcon_white.png' %}" alt="큰거" class="scoreImg">
 								<p>(score)</p>
 							</div>
 							<div class="score">
-								<img src="{% static 'image/peeIcon.png' %}" alt="작은거" class="scoreImg">
+								<img src="{% static 'image/peeIcon_white.png' %}" alt="작은거" class="scoreImg">
 								<p>(score)</p>
 							</div>
 							<div class="score">
-								<img src="{% static 'image/fartIcon.png' %}" alt="가스" class="scoreImg">
+								<img src="{% static 'image/fartIcon_white.svg' %}" alt="가스" class="scoreImg">
 								<p>(score)</p>
 							</div>
 						</div>
@@ -64,20 +71,20 @@
 			<li class="slideitem">
 				<a>
 					<div class="textbox">
-						<h3>1등</h3>
-						<h4>(닉네임)</h4>
-						<h5>(score)point!</h5>
+						<h3>3위</h3>
+						<h3>(닉네임)</h3>
+						<h3>(score)point!</h3>
 						<div class="scoreDiv">
 							<div class="score">
-								<img src="{% static 'image/poopIcon.png' %}" alt="큰거" class="scoreImg">
+								<img src="{% static 'image/poopIcon_white.png' %}" alt="큰거" class="scoreImg" id="poop">
 								<p>(score)</p>
 							</div>
 							<div class="score">
-								<img src="{% static 'image/peeIcon.png' %}" alt="작은거" class="scoreImg">
+								<img src="{% static 'image/peeIcon_white.png' %}" alt="작은거" class="scoreImg" id="pee">
 								<p>(score)</p>
 							</div>
 							<div class="score">
-								<img src="{% static 'image/fartIcon.png' %}" alt="가스" class="scoreImg">
+								<img src="{% static 'image/fartIcon_white.svg' %}" alt="가스" class="scoreImg" id="fart">
 								<p>(score)</p>
 							</div>
 						</div>
@@ -103,12 +110,7 @@
 			</div>
 
 		</ul>
-		<!-- 페이징 -->
-		<ul class="slide-pagelist">
-			<li><label for="slide01"></label></li>
-			<li><label for="slide02"></label></li>
-			<li><label for="slide03"></label></li>
-		</ul>
+		
 	</div>
 
 	

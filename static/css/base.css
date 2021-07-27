@@ -23,10 +23,6 @@ html{
     align-items: center;
 }
 
-.logo-area{
-    width: 300px;
-}
-
 .center-area{
     display: flex;
     justify-content: center;
@@ -45,7 +41,7 @@ html{
 }
 
 .right-area{
-    width: 300px;
+    width: 250px;
     display: flex;
     justify-content:flex-end;
     align-items: center;
