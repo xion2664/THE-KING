@@ -40,7 +40,7 @@ def upload(request) :
         user_id = request.user.id
         user = User.objects.get(id = user_id)
         new_board.author = user
-        new_board.save()
+        new_board.save() 
 
         return redirect('home')
     else :
