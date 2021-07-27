@@ -41,7 +41,7 @@ def upload(request) :
         user = User.objects.get(id = user_id)
         new_board.author = user
         new_board.save() 
-
+ 
         return redirect('home')
     else :
         # GET 방식일때 단순 페이지 이동
