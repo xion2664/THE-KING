@@ -6,6 +6,7 @@ from django.contrib.auth.forms import UserChangeForm
 # from django.contrib.auth.decorators import login_required
 
 from .models import User
+from board.models import Board
 from django.contrib import auth
 
 # Create your views here.
@@ -79,6 +80,7 @@ def mypage(request) :
     if request.method == 'GET':
         return render(request, 'mypage.html')
 
+# 개인 정보 수정
 def user_update(request, id) :
     if request.method == 'POST' :
         user_update = User.objects.get(id = id)
@@ -92,8 +94,7 @@ def user_update(request, id) :
 
 
 def history(request) :
+    print("sakfdds", request.user)
     boards = Board.objects.all()
-    return render(request, 'history.html', {'boards' : boards})
-
-def people(request) :
-    return render(request, 'people.html')
+    board_list = boards.filter(author = request.user)
+    return render(request, 'history.html', {'board_list' : board_list})
