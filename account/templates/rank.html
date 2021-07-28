@@ -5,6 +5,10 @@
 
 {% block content %}
 
+
+
+
+
 <div class="main">
     <div class="container">
         <div class="topic">마이페이지</div>
@@ -43,22 +47,22 @@
                             <tbody>
                               <tr>
                                 <td><img src="{% static 'image/poopIcon.png' %}" alt="큰거" class="scoreImg" width="50px"></td>
-                                <td>(score)</td>
+                                <td>{{ user.big_score }}</td>
                                 <td>(rank)</td>
                               </tr>
                               <tr>
                                 <td><img src="{% static 'image/peeIcon.png' %}" alt="작은거" class="scoreImg" width="60px"></td>
-                                <td>(score)</td>
+                                <td>{{ user.small_score }}</td>
                                 <td>(rank)</td>
                               </tr>
                               <tr>
                                 <td><img src="{% static 'image/fartIcon.png' %}" alt="방구" class="scoreImg" width="55px"></td>
-                                <td>(score)</td>
+                                <td>{{ user.gas_score }}</td>
                                 <td>(rank)</td>
                               </tr>
                               <tr>
                                 <td>Total</td>
-                                <td>(score)</td>
+                                <td>{{ user.total_score }}</td>
                                 <td>(rank)</td>
                               </tr>
                             </tbody>

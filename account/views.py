@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.hashers import check_password
 from .forms import CustomUserChangeForm
 from django.contrib.auth.forms import UserChangeForm
 # from django.contrib.auth.decorators import login_required
@@ -59,7 +60,7 @@ def user_delete(request) :
         user = request.user
         if check_password(password_del, user.password) :
             user.delete()
-            return redirect('/')
+            return redirect('home')
     else :
         return render(request, 'delete.html')
 
@@ -72,37 +73,22 @@ def rank(request) :
     rank_total = User.objects.all().order_by('total_score')
     return render(request, 'rank.html', {'rank_big': rank_big}, {'rank_small':rank_small}, {'rank_gas':rank_gas}, {'rank_total':rank_total})
 
-
 # 마이페이지
 def mypage(request) :
     #로그인 안된 사용자 접근 제한
     if request.method == 'GET':
         return render(request, 'mypage.html')
 
-
-# 회원 정보 수정
-# @login_required
-# def user_update(request):
-#     if request.method == 'POST':
-#         user_change_from = CustomUserChangeForm(request.POST, instance=request.user)
-#         if user_change_form.is_valid():
-#             user_change_form.save()
-#             return redirect('people', request.user.username)
-    
-#     else:
-# 	    user_change_form = CustomUserChangeForm(instance = request.user)
-# 	    return render(request, 'people.html', {'user_change_form':user_change_form})
-
 def user_update(request, id) :
     if request.method == 'POST' :
-        update_user = User.objects.get(pk = id)
-        update_user.nickname = request.POST['title']
-        update_user.profile = request.GET('profile')
-        update_user.save()
-        return redirect('mypage', update_user.id)
+        user_update = User.objects.get(id = id)
+        user_update.nickname = request.POST["nickname"]
+        user_update.profile = request.FILES.get('profile')
+        user_update.save()
+        return redirect('mypage')
     else :
-        user = User.objects.get(pk = id)
-        return render(request, 'update.html', {'user':user})
+        return render(request, 'update.html')
+
 
 
 def history(request) :
