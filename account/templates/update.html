@@ -5,45 +5,48 @@
 
 {% block content %}
 
-<form method="POST" action="{% url 'update' user.id %}" enctype="multipart/form-data">
-    {% csrf_token %}
-    <p>닉네임 : <input type="text" name="nickname" value="{{ user.nickname }}"></p>
-    <p>이미지 : <input type="file" name='profile' value="{{ user.profile }}"></p>
-    <button>수정하기</button>
-</form>
-
 <div class="main">
     <div class="container">
         <div class="topic">마이페이지</div>
         <hr>
         <div class="content">
-            <input type="radio" name="slider" id="home">
-            <input type="radio" name="slider" id="blog" checked>
-            <input type="radio" name="slider" id="help">
-            <input type="radio" name="slider" id="code">
-            <input type="radio" name="slider" id="about">
             <div class="list">
-                <label for="home" class="home">
+                <label for="home" class="nonselected">
                     <a href="{% url 'mypage' %}"><span class="title">나의 정보</span></a>
                 </label>
-                <label for="blog" class="blog" >
+                <label for="blog" class="selected" >
                     <a href="{% url 'update' user.id %}"><span class="title">개인정보 수정</span></a>
                 </label>
-                <label for="help" class="help">
+                <label for="help" class="nonselected">
                     <a href="{% url 'rank' %}"><span class="title">점수 및 순위</span></a>
                 </label>
-                <label for="code" class="code">
+                <label for="code" class="nonselected">
                     <a href="{% url 'history' %}"><span class="title">나의 기록들</span></a>
                 </label>
-                <label for="about" class="about">
+                <label for="about" class="nonselected">
                     <a href="{% url 'delete' %}"><span class="title">회원 탈퇴</span></a>
                 </label>
-                <div class="slider"></div>
             </div>
             <div class="text-content">
-                <div class="blog text">
-                    <div class="blog-content">
-                        <div class="containers">
+                <div class="text">
+                    <div class="title">개인정보 수정</div>
+                    <div class="info">
+                        <form method="POST" action="{% url 'update' user.id %}" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <p>닉네임 : <input type="text" name="nickname" value="{{ user.nickname }}"></p>
+                            <p>이미지 : <input type="file" name='profile' value="{{ user.profile }}"></p>
+                            <button type="submit" class="submit">수정하기</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+</div>
+
+{% endblock %}
+
+                            <!-- 
                             <h1> {{ id.username }}</h1>
                             {% if user == id %}
                             <div>
@@ -58,12 +61,4 @@
                                     <button>수정하기</button>
                                 </form>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>    
-</div>
-
-{% endblock %}
+                             -->
