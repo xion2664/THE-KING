@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from .forms import CustomUserChangeForm
 from django.contrib.auth.forms import UserChangeForm
-from django.contrib.auth.decorators import login_required
+# from django.contrib.auth.decorators import login_required
 
 from .models import User
 from django.contrib import auth
@@ -81,21 +81,33 @@ def mypage(request) :
 
 
 # 회원 정보 수정
-@login_required
-def user_update(request):
-    if request.method == 'POST':
-        user_change_from = CustomUserChangeForm(request.POST, instance=request.user)
-        if user_change_form.is_valid():
-            user_change_form.save()
-            return redirect('people', request.user.username)
+# @login_required
+# def user_update(request):
+#     if request.method == 'POST':
+#         user_change_from = CustomUserChangeForm(request.POST, instance=request.user)
+#         if user_change_form.is_valid():
+#             user_change_form.save()
+#             return redirect('people', request.user.username)
     
-    else:
-	    user_change_form = CustomUserChangeForm(instance = request.user)
-	    return render(request, 'people.html', {'user_change_form':user_change_form})
+#     else:
+# 	    user_change_form = CustomUserChangeForm(instance = request.user)
+# 	    return render(request, 'people.html', {'user_change_form':user_change_form})
+
+def user_update(request, id) :
+    if request.method == 'POST' :
+        update_user = User.objects.get(pk = id)
+        update_user.nickname = request.POST['title']
+        update_user.profile = request.GET('profile')
+        update_user.save()
+        return redirect('mypage', update_user.id)
+    else :
+        user = User.objects.get(pk = id)
+        return render(request, 'update.html', {'user':user})
 
 
 def history(request) :
-    return render(request, 'history.html')
+    boards = Board.objects.all()
+    return render(request, 'history.html', {'boards' : boards})
 
 def people(request) :
     return render(request, 'people.html')
