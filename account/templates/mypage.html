@@ -40,8 +40,9 @@
                         <div class="info">
                             <h3>ID : {{user.username}}</h3>
                             <h3>닉네임 : {{user.nickname}}</h3>
-                            
+                            {% if user.profile %}
                             <img src="{{user.profile.url}}" width="200px">
+                            {% endif %}
                             <img src="{% static 'image/poopIcon.png'%}" width="50px"><p> : {{user.big_score}}</p>
                             <img src="{% static 'image/peeIcon.png'%}" width="50px"><p> : {{user.small_score}}</p>
                             <img src="{% static 'image/fartIcon.svg'%}" width="50px"><p> : {{user.gas_score}}</p>
