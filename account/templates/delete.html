@@ -5,131 +5,38 @@
 
 {% block content %}
 
-#회원탈퇴 비밀번호 확인 폼
-<form action="{%url 'delete'%}" method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    <input id="pw" type="text" name="password_del" placeholder="PW">
-    <button type="submit" class="submit">탈퇴</button>
-</form>
-
-
-
 <div class="main">
     <div class="container">
         <div class="topic">마이페이지</div>
         <hr>
         <div class="content">
-            <input type="radio" name="slider" id="home">
-            <input type="radio" name="slider" id="blog">
-            <input type="radio" name="slider" id="help">
-            <input type="radio" name="slider" id="code">
-            <input type="radio" name="slider" checked id="about">
             <div class="list">
-                <label for="home" class="home">
-                    <a class="title" href="{% url 'mypage' %}">나의 정보</a>
+                <label for="home" class="nonselected">
+                    <a href="{% url 'mypage' %}"><span class="title">나의 정보</span></a>
                 </label>
-                <label for="blog" class="blog" >
-                    <a class="title" href="#">개인정보 수정</a>
+                <label for="blog" class="nonselected" >
+                    <a href="{% url 'update' user.id %}"><span class="title">개인정보 수정</span></a>
                 </label>
-                <label for="help" class="help">
-                    <a class="title" href="#">점수 및 순위</a>
+                <label for="help" class="nonselected">
+                    <a href="{% url 'rank' %}"><span class="title">점수 및 순위</span></a>
                 </label>
-                <label for="code" class="code">
-                    <a class="title" href="#">나의 기록들</a>
+                <label for="code" class="nonselected">
+                    <a href="{% url 'history' %}"><span class="title">나의 기록들</span></a>
                 </label>
-                <label for="about" class="about">
-                    <a class="title" href="#">회원 탈퇴</a>
+                <label for="about" class="selected">
+                    <a href="{% url 'delete' %}"><span class="title">회원 탈퇴</span></a>
                 </label>
-                <div class="slider"></div>
             </div>
             <div class="text-content">
-                <div class="home text">
-                    <div class="home-content">
-                        <div class="title">나의 정보</div>
-                        <div class="info">
-                            <h3>ID : {{user.username}}</h3>
-                            <h3>닉네임 : {{user.nickname}}</h3>
-                            {% if user.image %}
-                            <p>프로필 이미지 : <img src="{{user.profile.url}}" width="200px"></p>
-                            <p><img src="{% static 'image/poopIcon.png'}" width="50px"> : {{user.big_score}}</p>
-                            <p><img src="{% static 'image/peeIcon.png'}" width="50px"> : {{user.small_score}}</p>
-                            <p><img src="{% static 'image/fartIcon.png'}" width="50px"> : {{user.gas_score}}</p>
-                            <p>Total : {{user.total_score}}</p>
-                            {% endif %}                
-                        </div>
-                    </div>
-                </div>
-                <div class="blog text">
-                    <div class="blog-content">
-                        <div class="containers">
-                            <h1> {{ id.username }}</h1>
-                            {% if user == id %}
-                            <div>
-                            <a href="{% url 'update' %}">계정정보수정</a>
-                            </div>
-                            {% endif %}
-                            <div class="row">
-                                {% for post in id.post_set.all %}
-                                <div class="col-4">
-                                    <img src= "{{ post.image_set.first.file.url }}" class="img-fluid"/>
-                                </div>
-                                {% endfor %}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="help text">
-                    <div class="help-content">
-                        <table>
-                            <thead>
-                                <div class="date">(날짜)</div>
-                            </thead>
-                            <tbody>
-                              <tr>
-                                <td><img src="{% static 'image/poopIcon.png' %}" alt="큰거" class="scoreImg" width="50px"></td>
-                                <td>(score)</td>
-                                <td>(rank)</td>
-                              </tr>
-                              <tr>
-                                <td><img src="{% static 'image/peeIcon.png' %}" alt="작은거" class="scoreImg" width="60px"></td>
-                                <td>(score)</td>
-                                <td>(rank)</td>
-                              </tr>
-                              <tr>
-                                <td><img src="{% static 'image/fartIcon.png' %}" alt="방구" class="scoreImg" width="55px"></td>
-                                <td>(score)</td>
-                                <td>(rank)</td>
-                              </tr>
-                              <tr>
-                                <td>Total</td>
-                                <td>(score)</td>
-                                <td>(rank)</td>
-                              </tr>
-                            </tbody>
-                        </table>
-                    </div>                
-                </div>
-                <div class="code text">
-                    <ul class="ul-list">
-                        <li>작성일</li>
-                        <li><img src="{% static 'image/poopIcon.png'}" width="50px"></li>
-                        <li><img src="{% static 'image/peeIcon.png'}" width="50px"></li>
-                        <li><img src="{% static 'image/fartIcon.png'}" width="50px"></li>
-                        <li>Total</li>
-                    </ul>
-                    <ul class="ul-list">
-                        <li>{{board.created_at}}</li>
-                        <li>{{board.</li>
-                        <li><img src="{% static 'image/poopIcon.png'}" width="50px"></li>
-                        <li><img src="{% static 'image/poopIcon.png'}" width="50px"></li>
-                        <li>Total</li>
-                    </ul>
-                </div>
-                <div class="about text">
-                    <div class="code-content">
-                        <div class="title">탈퇴하시겠습니까?</div>
-                        <p>선택은 돌이킬 수 없습니다...</p>
-                        <a href="{%url 'delete'%}"><input type="button" value="네"></a>
+                <div class="text">
+                    <div class="title">회원 탈퇴</div>
+                    <div class="info">
+                        <form action="{%url 'delete'%}" method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <p>정말로 탈퇴하시겠습니까? 모든 기록이 영구 삭제되며 재가입 시에도 복구 불가합니다.</p>
+                            <input id="pw" type="text" name="password_del" placeholder="PW">
+                            <button type="submit" class="submit">탈퇴</button>
+                        </form>
                     </div>
                 </div>
             </div>
