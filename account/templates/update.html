@@ -5,6 +5,13 @@
 
 {% block content %}
 
+<form method="POST" action="{% url 'update' user.id %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    <p>닉네임 : <input type="text" name="nickname" value="{{ user.nickname }}"></p>
+    <p>이미지 : <input type="file" name='profile' value="{{ user.profile }}"></p>
+    <button>수정하기</button>
+</form>
+
 <div class="main">
     <div class="container">
         <div class="topic">마이페이지</div>
@@ -20,7 +27,7 @@
                     <a href="{% url 'mypage' %}"><span class="title">나의 정보</span></a>
                 </label>
                 <label for="blog" class="blog" >
-                    <a href="{% url 'update' %}"><span class="title">개인정보 수정</span></a>
+                    <a href="{% url 'update' user.id %}"><span class="title">개인정보 수정</span></a>
                 </label>
                 <label for="help" class="help">
                     <a href="{% url 'rank' %}"><span class="title">점수 및 순위</span></a>
@@ -44,11 +51,12 @@
                             </div>
                             {% endif %}
                             <div class="row">
-                                {% for post in id.post_set.all %}
-                                <div class="col-4">
-                                    <img src= "{{ post.image_set.first.file.url }}" class="img-fluid"/>
-                                </div>
-                                {% endfor %}
+                                <form method="POST" action="{% url 'update' user.id %}" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    <p>닉네임 : <input type="text" name="nickname" value="{{ user.nickname }}"></p>
+                                    <p>이미지 : <input type="file" name='profile' value="{{ user.profile }}"></p>
+                                    <button>수정하기</button>
+                                </form>
                             </div>
                         </div>
                     </div>

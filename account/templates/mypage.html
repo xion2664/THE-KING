@@ -20,7 +20,7 @@
                     <a href="{% url 'mypage' %}"><span class="title">나의 정보</span></a>
                 </label>
                 <label for="blog" class="blog" >
-                    <a href="{% url 'update' %}"><span class="title">개인정보 수정</span></a>
+                    <a href="{% url 'update' user.id %}"><span class="title">개인정보 수정</span></a>
                 </label>
                 <label for="help" class="help">
                     <a href="{% url 'rank' %}"><span class="title">점수 및 순위</span></a>
