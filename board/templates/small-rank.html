@@ -9,8 +9,8 @@
     <div class="main-container">
         <div class="main-contents-box">
             <div class="chart-top">
-                <p class="chart-title">통합 차트</p>
-                <p class="chart-date">2021.07.18 ></p>
+                <p class="chart-title">소변 차트</p>
+                <p class="chart-date">2021.07.30 ></p>
             </div>
             <div class="top-border"></div>
             <div class="chart-center">
@@ -41,29 +41,31 @@
                             </a>
                         </div>
                     </div>
-                    {% for row in rank_small %}
-                        <div class="tr">
-                            <div class="th">
+                    {% for row in small_rank %}
+                        <div class="chart-data">
+                            <div class="chart-nav-content">
                                 <!-- 등수를 어떻게 처리해야 할지 (user에 넣을지 for로 계산해야 할지) -->
                                 <strong></strong>
                             </div>
-                            <div class="td">
-                                <img src="{{ row.profile }}" alt="프로필사진">
+                            <div class="chart-nav-content">
+                                {% if row.profile %}
+                                <img src="{{ row.profile.url }}" class="profile" height="100px" alt="프로필">
+                                {% endif %}
                             </div>
-                            <div class="td">
+                            <div class="chart-nav-content">
                                 <p>{{ row.nickname }}</p>
                             </div>
-                            <div class="td">
-                                <p>{{ row.big_score }}</p>
+                            <div class="chart-nav-content">
+                                <p>{{ row.big_score }}점</p>
                             </div>
-                            <div class="td">
-                                <strong><p>{{ row.small_score }}</p></strong>
+                            <div class="chart-nav-content current-content">
+                                <p>{{ row.small_score }}점</p>
                             </div>
-                            <div class="td">
-                                <p>{{ row.gas_score }}</p>
+                            <div class="chart-nav-content">
+                                <p>{{ row.gas_score }}점</p>
                             </div>
-                            <div class="td">
-                                <p>{{ row.total_score }}</p>
+                            <div class="chart-nav-content">
+                                <p>{{ row.total_score }}점</p>
                             </div>
                         </div>
                     {% endfor %}

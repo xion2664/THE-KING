@@ -43,7 +43,7 @@ def upload(request) :
         user_id = request.user.id
         user = User.objects.get(id = user_id)
         new_board.author = user
-        new_board.save() 
+        new_board.save()
 
         # choice의 생리활동 종류별로 점수 추가
 
@@ -82,3 +82,22 @@ def delete(request, id) :
     delete_board.delete()
     return redirect('home')
 
+# 통합 순위 메서드
+def total_rank(request):
+    total_rank = User.objects.all().order_by('-total_score')
+    return render(request, 'total-rank.html', {"total_rank":total_rank})
+
+# 대변 순위 메서드
+def big_rank(request):
+    big_rank = User.objects.all().order_by('-big_score')
+    return render(request, 'big-rank.html', {"big_rank":big_rank})
+
+# 소변 순위 메서드
+def small_rank(request):
+    small_rank = User.objects.all().order_by('-small_score')
+    return render(request, 'small-rank.html', {"small_rank":small_rank})
+
+# 방귀 순위 메서드
+def gas_rank(request):
+    gas_rank = User.objects.all().order_by('-gas_score')
+    return render(request, 'gas-rank.html', {"gas_rank":gas_rank})

@@ -33,6 +33,7 @@ html{
 .chart-top{
     display: flex;
     flex-direction: column;
+    align-items: center;
     margin: 50px;
 }
 
@@ -102,6 +103,9 @@ html{
     font-size: 1.8rem;
     text-align: center;
     color: #B4846C;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .current-content{
