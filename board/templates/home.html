@@ -17,84 +17,128 @@
 			<li><label for="slide02"></label></li>
 			<li><label for="slide03"></label></li>
 		</ul>
-
 		<ul class="slidelist">
 			<!-- 슬라이드 영역 -->
+
 			<li class="slideitem">
 				<a>
 					<div class="textbox">
 						<h3>1위</h3>
-						<div class="profile">
-							<!-- user의 프로필 사진이 있을 경우 -->
-							{% if user.profile %}
-							<img src="{{user.profile.url}}" class="profilePic" alt="프로필사진">
-							<!-- user의 프로필 사진이 없을 경우 -->
-							{% else %}
-							<img src="{% static 'image/user.png' %}" class="profilePic" alt="디폴트사진">
-							{% endif %}
+						<div class="profileBox">
+							<div class="profile">
+								<!-- user의 프로필 사진이 있을 경우 -->
+								{% if rank_total.0.profile %}
+								<img src="{{rank_total.0.profile.url}}" class="profilePic" alt="프로필사진">
+								<!-- user의 프로필 사진이 없을 경우 -->
+								{% else %}
+								<img src="{% static 'image/user.png' %}" class="profilePic" alt="디폴트사진">
+								{% endif %}
+							</div>
 						</div>
-						<h3>{{user.nickname}}</h3>
-						<h3>{{user.total_score}} point!</h3>
+						<h3>-</h3>
+						{% if rank_total.0.nickname %}
+						<h3>{{rank_total.0.nickname}}</h3>
+						{% else %}
+						<h3>닉네임을 입력해주세요</h3>
+						{% endif %}
+						<h3>{{rank_total.0.total_score}} point!</h3>
+						<h3>-</h3>
 						<div class="scoreDiv">
 							<div class="score">
-								<img src="{% static 'image/poopIcon_white.png' %}" alt="큰거" class="scoreImg">
-								<p>{{user.big_score}}</p>
+								<img src="{% static 'image/poopIcon_white.png' %}" alt="큰거" id="poop">
+								<p>{{rank_total.0.big_score}}</p>
 							</div>
 							<div class="score">
-								<img src="{% static 'image/peeIcon_white.png' %}" alt="작은거" class="scoreImg">
-								<p>{{user.small_score}}</p>
+								<img src="{% static 'image/peeIcon_white.png' %}" alt="작은거" id="pee">
+								<p>{{rank_total.0.small_score}}</p>
 							</div>
 							<div class="score">
-								<img src="{% static 'image/fartIcon_white.svg' %}" alt="가스" class="scoreImg">
-								<p>{{user.gas_score}}</p>
+								<img src="{% static 'image/fartIcon_white.svg' %}" alt="가스" id="fart">
+								<p>{{rank_total.0.gas_score}}</p>
 							</div>
 						</div>
 					</div>
 					<img class="slideImg" src="{% static 'image/theKing.svg' %}">
 				</a>
 			</li>
+
 			<li class="slideitem">
 				<a>
 					<div class="textbox">
 						<h3>2위</h3>
-						<h3>(닉네임)</h3>
-						<h3>(score)point!</h3>
+						<div class="profileBox">
+							<div class="profile">
+								<!-- user의 프로필 사진이 있을 경우 -->
+								{% if rank_total.1.profile %}
+								<img src="{{rank_total.1.profile.url}}" class="profilePic" alt="프로필사진">
+								<!-- user의 프로필 사진이 없을 경우 -->
+								{% else %}
+								<img src="{% static 'image/user.png' %}" class="profilePic" alt="디폴트사진">
+								{% endif %}
+							</div>
+						</div>
+						<h3>-</h3>
+						{% if rank_total.1.nickname %}
+						<h3>{{rank_total.1.nickname}}</h3>
+						{% else %}
+						<h3>닉네임을 입력해주세요</h3>
+						{% endif %}
+						<h3>{{rank_total.1.total_score}} point!</h3>
+						<h3>-</h3>
 						<div class="scoreDiv">
 							<div class="score">
-								<img src="{% static 'image/poopIcon_white.png' %}" alt="큰거" class="scoreImg">
-								<p>(score)</p>
+								<img src="{% static 'image/poopIcon_white.png' %}" alt="큰거" id="poop">
+								<p>{{rank_total.1.big_score}}</p>
 							</div>
 							<div class="score">
-								<img src="{% static 'image/peeIcon_white.png' %}" alt="작은거" class="scoreImg">
-								<p>(score)</p>
+								<img src="{% static 'image/peeIcon_white.png' %}" alt="작은거" id="pee">
+								<p>{{rank_total.1.small_score}}</p>
 							</div>
 							<div class="score">
-								<img src="{% static 'image/fartIcon_white.svg' %}" alt="가스" class="scoreImg">
-								<p>(score)</p>
+								<img src="{% static 'image/fartIcon_white.svg' %}" alt="가스" id="fart">
+								<p>{{rank_total.1.gas_score}}</p>
 							</div>
 						</div>
 					</div>
 					<img class="slideImg" src="{% static 'image/slideImg.png' %}">
 				</a>
 			</li>
+
 			<li class="slideitem">
 				<a>
 					<div class="textbox">
 						<h3>3위</h3>
-						<h3>(닉네임)</h3>
-						<h3>(score)point!</h3>
+						<div class="profileBox">
+							<div class="profile">
+								<!-- user의 프로필 사진이 있을 경우 -->
+								{% if rank_total.2.profile %}
+								<img src="{{rank_total.2.profile.url}}" class="profilePic" alt="프로필사진">
+								<!-- user의 프로필 사진이 없을 경우 -->
+								{% else %}
+								<img src="{% static 'image/user.png' %}" class="profilePic" alt="디폴트사진">
+								{% endif %}
+							</div>
+						</div>
+						<h3>-</h3>
+						{% if rank_total.2.nickname %}
+						<h3>{{rank_total.2.nickname}}</h3>
+						{% else %}
+						<h3>닉네임을 입력해주세요</h3>
+						{% endif %}
+						<h3>{{rank_total.2.total_score}} point!</h3>
+						<h3>-</h3>
 						<div class="scoreDiv">
 							<div class="score">
-								<img src="{% static 'image/poopIcon_white.png' %}" alt="큰거" class="scoreImg" id="poop">
-								<p>(score)</p>
+								<img src="{% static 'image/poopIcon_white.png' %}" alt="큰거" id="poop">
+								<p>{{rank_total.2.big_score}}</p>
 							</div>
 							<div class="score">
-								<img src="{% static 'image/peeIcon_white.png' %}" alt="작은거" class="scoreImg" id="pee">
-								<p>(score)</p>
+								<img src="{% static 'image/peeIcon_white.png' %}" alt="작은거"id="pee">
+								<p>{{rank_total.2.small_score}}</p>
 							</div>
 							<div class="score">
-								<img src="{% static 'image/fartIcon_white.svg' %}" alt="가스" class="scoreImg" id="fart">
-								<p>(score)</p>
+								<img src="{% static 'image/fartIcon_white.svg' %}" alt="가스"id="fart">
+								<p>{{rank_total.2.gas_score}}</p>
 							</div>
 						</div>
 					</div>
@@ -105,16 +149,16 @@
 			<!-- 좌,우 슬라이드 버튼 -->
 			<div class="slide-control">
 				<div>
-					<label for="slide03" class="left"></label>
-					<label for="slide02" class="right"></label>
+					<label for="slide03" class="left"><img src="{% static 'image/left.png' %}" width="100px"></label>
+					<label for="slide02" class="right"><img src="{% static 'image/right.png' %}" width="100px"></label>
 				</div>
 				<div>
-					<label for="slide01" class="left"></label>
-					<label for="slide03" class="right"></label>
+					<label for="slide01" class="left"><img src="{% static 'image/left.png' %}" width="100px"></label>
+					<label for="slide03" class="right"><img src="{% static 'image/right.png' %}" width="100px"></label>
 				</div>
 				<div>
-					<label for="slide02" class="left"></label>
-					<label for="slide01" class="right"></label>
+					<label for="slide02" class="left"><img src="{% static 'image/left.png' %}" width="100px"></label>
+					<label for="slide01" class="right"><img src="{% static 'image/right.png' %}" width="100px"></label>
 				</div>
 			</div>
 
