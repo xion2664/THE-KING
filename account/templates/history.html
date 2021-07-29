@@ -39,13 +39,15 @@
                             <li>Total</li>
                         </ul>
                         <ul class="ul-list">
-                            {% for b in board_list %}
-                            <a href="{% url 'detail' b.id %}">
-                                <li>{{b.body}}</li>
-                                <li>{{b.id}}</li>
-                            </a>
-                            <hr>
-                            {% endfor %}
+                            {% if board_list %}
+                                {% for b in board_list %}
+                                <a href="{% url 'detail' b.id %}">
+                                    <li>{{b.body}}</li>
+                                    <li>{{b.id}}</li>
+                                </a>
+                                <hr>
+                                {% endfor %}
+                            {% endif %}
                         </ul>
                     </div>
                 </div>
