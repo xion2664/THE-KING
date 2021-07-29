@@ -68,11 +68,12 @@ def user_delete(request) :
 
 # 랭킹 정렬
 def rank(request) :
-    rank_big = User.objects.all().order_by('big_score')
-    rank_small = User.objects.all().order_by('small_score')
-    rank_gas = User.objects.all().order_by('gas_score')
-    rank_total = User.objects.all().order_by('total_score')
-    return render(request, 'rank.html', {'rank_big': rank_big}, {'rank_small':rank_small}, {'rank_gas':rank_gas}, {'rank_total':rank_total})
+    rank_big = User.objects.all().order_by('-big_score')
+    rank_small = User.objects.all().order_by('-small_score')
+    rank_gas = User.objects.all().order_by('-gas_score')
+    rank_total = User.objects.all().order_by('-total_score')
+    print(rank_big)
+    return render(request, 'rank.html')
 
 # 마이페이지
 def mypage(request) :
