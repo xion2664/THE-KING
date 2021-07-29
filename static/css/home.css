@@ -59,8 +59,8 @@
 .section input[id="slide03"]:checked ~ .slidewrap .slide-pagelist > li:nth-child(3) > label {background:#AACDFF;}
 
 .profile {
-    width: 150px;
-    height: 150px; 
+    width: 250px;
+    height: 250px; 
     border-radius: 70%;
     overflow: hidden;
 }
