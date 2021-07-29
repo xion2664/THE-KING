@@ -51,7 +51,33 @@
                             <div class="mid-title">
                                 <p>인증 사진</p>
                             </div>
-                            <input type="image" name="image">
+                            <img src="{{ board.image.url }}" id="img_section" style="width: 250px;">
+                            <br>
+                            <div class="button-area">
+                                <input class="image-text" type="text" id="file_route" value="파일 선택">
+                                <label for="upload_file" class="top-btn brown-btn image-label">
+                                    <p>찾아보기</p>
+                                </label>
+                            </div>
+                            <input type="file" id="upload_file" accept="image/*" required=true 
+                            style="position:absolute; clip:rect(0, 0, 0, 0);">
+                            <!-- 미리보기 스크립트 -->
+                            <script>
+                                const reader = new FileReader();
+
+                                reader.onload = (readerEvent) => {
+                                    document.querySelector("#img_section").setAttribute("src", readerEvent.target.result);
+                                };
+
+                                document.querySelector("#upload_file").addEventListener("change", (changeEvent) => {
+
+                                    const imgFile = changeEvent.target.files[0];
+                                    reader.readAsDataURL(imgFile);
+
+                                    const fileName = document.getElementById("file_route");
+                                    fileName.value = imgFile.name;
+                                })
+                            </script>
                         </div>
                         <!-- 인증 사진 끝 -->
                         <!-- 내용 시작 -->
