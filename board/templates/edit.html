@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
-{% block link %}{% static 'css/new.css' %}{% endblock %}
+{% block link %}{% static 'css/edit.css' %}{% endblock %}
 {% block title %}The King{% endblock %}
 {% block content %}
 
@@ -12,7 +12,7 @@
                 <!-- container-top-area 시작 -->
                 {% csrf_token %}
                 <div class="container-top-area">
-                    <p class="top-title">생리활동 업로드</p>
+                    <p class="top-title">생리활동 수정</p>
                     <div class="right-area">
                         <button type="button" onclick="history.go(-1)" class="top-btn white-btn">취소</button>
                         <button type="submit" class="top-btn brown-btn">등록</button>
@@ -29,9 +29,9 @@
                     <div class="box-area">
                         <select class="select-area" name="type">
                             <option value="">생리활동을 선택해 주세요.</option>
-                            <option value="big" selected>대변</option>
-                            <option value="small">소변</option>
-                            <option value="gas">방귀</option>
+                            <option value="big" {% if board.choice == 'big' %} selected {% endif %}>대변</option>
+                            <option value="small" {% if board.choice == 'small' %} selected {% endif %} >소변</option>
+                            <option value="gas" {% if board.choice == 'gas' %} selected {% endif %} >방귀</option>
                         </select>
                     </div>
                     <!-- 배출물 종류 끝 -->
@@ -40,7 +40,9 @@
                         <p>배출 일시</p>
                     </div>
                     <div class="box-area">
-                        <input class="select-area" type="datetime-local">
+                        <p class="select-area">
+                            {{ board.created_at }}
+                        </p>
                     </div>
                     <!-- 배출 일시 끝 -->
                     <div class="detail-area">
@@ -57,7 +59,7 @@
                             <div class="mid-title">
                                 <p>내용</p>
                             </div>
-                            <textarea class="content-textbox" name="body" id="" cols="80" rows="15"></textarea>
+                            <textarea class="content-textbox" name="body" id="" cols="80" rows="15">{{ board.body }}</textarea>
                         </div>
                         <!-- 내용 끝 -->
                     </div>

@@ -27,7 +27,17 @@
                     <p>배출물 종류</p>
                 </div>
                 <div class="box-area">
-                    <p class="select-area">{{ board.choice }}</p>
+                    <p class="select-area">
+                        {% if board.choice == 'big' %}
+                        대변
+                        {% endif %}
+                        {% if board.choice == 'small' %}
+                        소변
+                        {% endif %}
+                        {% if board.choice == 'gas' %}
+                        방귀
+                        {% endif %}
+                    </p>
                 </div>
                 <!-- 배출물 종류 끝 -->
                 <!-- 배출 일시 시작 -->
@@ -44,7 +54,7 @@
                         <div class="mid-title">
                             <p>인증 사진</p>
                         </div>
-                        <img src="{{ board.image }}" alt="">
+                        <img src="{{ board.image }}" alt="사진">
                     </div>
                     <!-- 인증 사진 끝 -->
                     <!-- 내용 시작 -->
