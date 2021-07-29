@@ -19,18 +19,21 @@
 		</ul>
 		<ul class="slidelist">
 			<!-- 슬라이드 영역 -->
+
 			<li class="slideitem">
 				<a>
 					<div class="textbox">
 						<h3>1위</h3>
-						<div class="profile">
-							<!-- user의 프로필 사진이 있을 경우 -->
-							{% if rank_total.0.profile %}
-							<img src="{{rank_total.0.profile.url}}" class="profilePic" alt="프로필사진">
-							<!-- user의 프로필 사진이 없을 경우 -->
-							{% else %}
-							<img src="{% static 'image/user.png' %}" class="profilePic" alt="디폴트사진">
-							{% endif %}
+						<div class="profileBox">
+							<div class="profile">
+								<!-- user의 프로필 사진이 있을 경우 -->
+								{% if rank_total.0.profile %}
+								<img src="{{rank_total.0.profile.url}}" class="profilePic" alt="프로필사진">
+								<!-- user의 프로필 사진이 없을 경우 -->
+								{% else %}
+								<img src="{% static 'image/user.png' %}" class="profilePic" alt="디폴트사진">
+								{% endif %}
+							</div>
 						</div>
 						<h3>-</h3>
 						{% if rank_total.0.nickname %}
@@ -54,23 +57,25 @@
 								<p>{{rank_total.0.gas_score}}</p>
 							</div>
 						</div>
-						<p class="px">-</p>
 					</div>
 					<img class="slideImg" src="{% static 'image/theKing.svg' %}">
 				</a>
 			</li>
+
 			<li class="slideitem">
 				<a>
 					<div class="textbox">
 						<h3>2위</h3>
-						<div class="profile">
-							<!-- user의 프로필 사진이 있을 경우 -->
-							{% if rank_total.1.profile %}
-							<img src="{{rank_total.1.profile.url}}" class="profilePic" alt="프로필사진">
-							<!-- user의 프로필 사진이 없을 경우 -->
-							{% else %}
-							<img src="{% static 'image/user.png' %}" class="profilePic" alt="디폴트사진">
-							{% endif %}
+						<div class="profileBox">
+							<div class="profile">
+								<!-- user의 프로필 사진이 있을 경우 -->
+								{% if rank_total.1.profile %}
+								<img src="{{rank_total.1.profile.url}}" class="profilePic" alt="프로필사진">
+								<!-- user의 프로필 사진이 없을 경우 -->
+								{% else %}
+								<img src="{% static 'image/user.png' %}" class="profilePic" alt="디폴트사진">
+								{% endif %}
+							</div>
 						</div>
 						<h3>-</h3>
 						{% if rank_total.1.nickname %}
@@ -94,24 +99,26 @@
 								<p>{{rank_total.1.gas_score}}</p>
 							</div>
 						</div>
-						<p class="px">-</p>
 					</div>
 					<img class="slideImg" src="{% static 'image/slideImg.png' %}">
 				</a>
 			</li>
+
 			<li class="slideitem">
 				<a>
 					<div class="textbox">
 						<h3>3위</h3>
-						<div class="profile">
-							<!-- user의 프로필 사진이 있을 경우 -->
-							{% if rank_total.2.profile %}
-							<img src="{{rank_total.2.profile.url}}" class="profilePic" alt="프로필사진">
-							<!-- user의 프로필 사진이 없을 경우 -->
-							{% else %}
-							<img src="{% static 'image/user.png' %}" class="profilePic" alt="디폴트사진">
-							{% endif %}
-						</div>	
+						<div class="profileBox">
+							<div class="profile">
+								<!-- user의 프로필 사진이 있을 경우 -->
+								{% if rank_total.2.profile %}
+								<img src="{{rank_total.2.profile.url}}" class="profilePic" alt="프로필사진">
+								<!-- user의 프로필 사진이 없을 경우 -->
+								{% else %}
+								<img src="{% static 'image/user.png' %}" class="profilePic" alt="디폴트사진">
+								{% endif %}
+							</div>
+						</div>
 						<h3>-</h3>
 						{% if rank_total.2.nickname %}
 						<h3>{{rank_total.2.nickname}}</h3>
@@ -134,7 +141,6 @@
 								<p>{{rank_total.2.gas_score}}</p>
 							</div>
 						</div>
-						<p class="px">-</p>
 					</div>
 					<img class="slideImg" src="{% static 'image/slideImg.png' %}">
 				</a>
