@@ -24,13 +24,15 @@
 				<a>
 					<div class="textbox">
 						<h3>1위</h3>
-						<!-- user의 프로필 사진이 있을 경우 -->
-						{% if user.profile %}
+						<div class="profile">
+							<!-- user의 프로필 사진이 있을 경우 -->
+							{% if user.profile %}
 							<img src="{{user.profile.url}}" class="profilePic" alt="프로필사진">
-						<!-- user의 프로필 사진이 없을 경우 -->
-						{% else %}
+							<!-- user의 프로필 사진이 없을 경우 -->
+							{% else %}
 							<img src="{% static 'image/user.png' %}" class="profilePic" alt="디폴트사진">
-						{% endif %}
+							{% endif %}
+						</div>
 						<h3>{{user.nickname}}</h3>
 						<h3>{{user.total_score}} point!</h3>
 						<div class="scoreDiv">

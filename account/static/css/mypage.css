@@ -7,13 +7,8 @@
 * {
   font-family: 'NanumSquareRound';
   font-size: 15px;
-  color: #202020;
 }
 
-.selected {
-  background: #B4846C;
-  color: #fff;
-}
 .container {
   max-width: 1000px;
   height: 700px;
@@ -42,7 +37,7 @@
   margin-right: 50px;
   position: relative;
 }
-.content .list label {
+.selected {
   height: 60px;
   font-size: 22px;
   font-weight: 500;
@@ -50,11 +45,22 @@
   cursor: pointer;
   padding-left: 25px;
   transition: all 0.5s ease;
-  color: #202020;
+  background: #B4846C;
   z-index: 12;
+  color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
-.content .list label {
+.nonselected {
+  height: 60px;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 60px;
+  cursor: pointer;
+  padding-left: 25px;
+  transition: all 0.5s ease;
   color: #B4846C;
+  z-index: 12;
 }
 .content .text-content {
   width: 80%;

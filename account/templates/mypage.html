@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}마이페이지{% endblock %}
-{%block link%}{%static 'css/mypage.css'%}{%endblock%}
+{% block link %}{% static 'css/mypage.css' %}{% endblock %}
 
 {% block content %}
 
@@ -12,7 +12,7 @@
         <div class="content">
             <div class="list">
                 <label for="home" class="selected">
-                    <a href="{% url 'mypage' %}"><span class="title">나의 정보</span></a>
+                    <a href="{% url 'mypage' %}"></a><span class="title">나의 정보</span></a>
                 </label>
                 <label for="blog" class="nonselected" >
                     <a href="{% url 'update' user.id %}"><span class="title">개인정보 수정</span></a>
