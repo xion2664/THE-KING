@@ -39,11 +39,38 @@ def upload(request) :
         new_board.created_at = timezone.datetime.now() 
         new_board.image = request.FILES.get('image')
         new_board.body = request.POST['body']
+
         user_id = request.user.id
         user = User.objects.get(id = user_id)
         new_board.author = user
         new_board.save() 
- 
+
+        # choice의 생리활동 종류별로 점수 추가
+
+        # 큰거일 때
+        if new_board.choice == 'big' :
+
+            save_score = User.objects.get(id = user_id)
+            save_score.big_score += 5
+            save_score.total_score += 5
+            save_score.save()
+        
+        # 작은거일 때
+        if new_board.choice == 'small' :
+
+            save_score = User.objects.get(id = user_id)
+            save_score.small_score += 3
+            save_score.total_score += 3
+            save_score.save()
+
+        # 방구일 때
+        if new_board.choice == 'gas' :
+
+            save_score = User.objects.get(id = user_id)
+            save_score.gas_score += 1
+            save_score.total_score += 1
+            save_score.save()
+
         return redirect('home')
     else :
         # GET 방식일때 단순 페이지 이동
