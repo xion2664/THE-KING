@@ -12,7 +12,9 @@
                 <p class="top-title">생리활동 자세히 보기</p>
                 <div class="right-area">
                     <button type="button" onclick="history.go(-1)" class="top-btn white-btn">취소</button>
-                    <!-- url \ 때문에 안되는 것 같습니다ㅠㅠ -->
+                    <a href="{% url 'delete' board.id %}">
+                        <button type="button" class="top-btn white-btn">삭제</button>
+                    </a>
                     <a href="{% url 'edit' board.id %}">
                         <button type="button"class="top-btn brown-btn">수정</button>
                     </a>
@@ -54,7 +56,9 @@
                         <div class="mid-title">
                             <p>인증 사진</p>
                         </div>
-                        <img src="{{ board.image }}" alt="사진">
+                        <div>
+                            <img src="{{ board.image }}" alt="사진" width="">
+                        </div>
                     </div>
                     <!-- 인증 사진 끝 -->
                     <!-- 내용 시작 -->
