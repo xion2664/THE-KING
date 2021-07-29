@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
-{% block link %}{% static 'css/new.css' %}{% endblock %}
+{% block link %}{% static 'css/detail.css' %}{% endblock %}
 {% block title %}The King{% endblock %}
 {% block content %}
 
@@ -13,7 +13,9 @@
                 <div class="right-area">
                     <button type="button" onclick="history.go(-1)" class="top-btn white-btn">취소</button>
                     <!-- url \ 때문에 안되는 것 같습니다ㅠㅠ -->
-                    <!-- <button type="button" onclick="location.href='{% url \'edit\' %}'" class="top-btn brown-btn">수정</button> -->
+                    <a href="{% url 'edit' board.id %}">
+                        <button type="button"class="top-btn brown-btn">수정</button>
+                    </a>
                 </div>
             </div>
             <!-- container-top-area 끝 -->
@@ -33,7 +35,7 @@
                     <p>배출 일시</p>
                 </div>
                 <div class="box-area">
-                    <p class="selec-area">{{ board.created_at }}</p>
+                    <p class="select-area">{{ board.created_at }}</p>
                 </div>
                 <!-- 배출 일시 끝 -->
                 <div class="detail-area">
@@ -50,7 +52,9 @@
                         <div class="mid-title">
                             <p>내용</p>
                         </div>
-                        <textarea class="content-textbox" name="" id="" cols="80" rows="15">{{ board.body }}</textarea>
+                        <div class="content-textbox" name="" id="">
+                            <p class="content-text">{{ board.body }}</p>
+                        </div>
                     </div>
                     <!-- 내용 끝 -->
                 </div>
