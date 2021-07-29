@@ -69,11 +69,35 @@ def user_delete(request) :
 # 랭킹 정렬
 def rank(request) :
     rank_big = User.objects.all().order_by('-big_score')
+    user = request.user.id
+    my_rank_big = 0
+    for idx, r in enumerate(rank_big) :
+        if user == r.id :
+            my_rank_big = idx+1
+
+
     rank_small = User.objects.all().order_by('-small_score')
+    user = request.user.id
+    my_rank_small = 0
+    for idx, r in enumerate(rank_small) :
+        if user == r.id :
+            my_rank_small = idx+1
+
     rank_gas = User.objects.all().order_by('-gas_score')
+    user = request.user.id
+    my_rank_gas = 0
+    for idx, r in enumerate(rank_gas) :
+        if user == r.id :
+            my_rank_gas = idx+1
+    
     rank_total = User.objects.all().order_by('-total_score')
-    print(rank_big)
-    return render(request, 'rank.html')
+    user = request.user.id
+    my_rank_total = 0
+    for idx, r in enumerate(rank_total) :
+        if user == r.id :
+            my_rank_total = idx+1
+    
+    return render(request, 'rank.html', {"my_rank_big":my_rank_big, "my_rank_small":my_rank_small, "my_rank_gas":my_rank_gas, "my_rank_total":my_rank_total})
 
 # 마이페이지
 def mypage(request) :
