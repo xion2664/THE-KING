@@ -71,7 +71,7 @@ def upload(request) :
             save_score.total_score += 1
             save_score.save()
 
-        return redirect('home')
+        return redirect('history')
     else :
         # GET 방식일때 단순 페이지 이동
         return render(request, 'new.html')
