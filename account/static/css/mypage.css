@@ -9,12 +9,21 @@
   font-size: 15px;
 }
 
+.main {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 .container {
-  max-width: 1000px;
-  height: 700px;
+  width: 920px;
+  height: 600px;
   padding: 40px 50px 40px 40px;
   background: #fff;
-  margin: 0 20px;
+  margin: 50px 0px 0px 0px;
   border-radius: 12px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
@@ -33,7 +42,7 @@
 .content .list {
   display: flex;
   flex-direction: column;
-  width: 20%;
+  width: 22%;
   margin-right: 50px;
   position: relative;
 }
