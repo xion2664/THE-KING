@@ -39,7 +39,7 @@
                             <li>Total</li>
                         </ul>
                         <ul class="ul-list">
-                            {% if board_list %}
+                            {% if board %}
                                 {% for b in board_list %}
                                 <a href="{% url 'detail' b.id %}">
                                     <li>{{b.body}}</li>
