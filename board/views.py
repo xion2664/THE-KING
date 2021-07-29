@@ -2,10 +2,12 @@ from django.shortcuts import render, redirect, get_object_or_404
 from account.models import User
 from django.utils import timezone
 from .models import *
+from account.models import User
 
 # 홈 메서드
 def home(request) :
-    return render(request, 'home.html')
+    rank_total = User.objects.all().order_by('-total_score')
+    return render(request, 'home.html', {"rank_total":rank_total})
 
 # 글 디테일 메서드
 def detail(request, id) :
@@ -52,3 +54,4 @@ def delete(request, id) :
     delete_board = Board.objects.get(id = id)
     delete_board.delete()
     return redirect('home')
+

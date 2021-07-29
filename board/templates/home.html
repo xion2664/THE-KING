@@ -17,7 +17,6 @@
 			<li><label for="slide02"></label></li>
 			<li><label for="slide03"></label></li>
 		</ul>
-
 		<ul class="slidelist">
 			<!-- 슬라이드 영역 -->
 			<li class="slideitem">
@@ -26,27 +25,27 @@
 						<h3>1위</h3>
 						<div class="profile">
 							<!-- user의 프로필 사진이 있을 경우 -->
-							{% if user.profile %}
-							<img src="{{user.profile.url}}" class="profilePic" alt="프로필사진">
+							{% if rank_total.0.profile %}
+							<img src="{{rank_total.0.profile.url}}" class="profilePic" alt="프로필사진">
 							<!-- user의 프로필 사진이 없을 경우 -->
 							{% else %}
 							<img src="{% static 'image/user.png' %}" class="profilePic" alt="디폴트사진">
 							{% endif %}
 						</div>
-						<h3>{{user.nickname}}</h3>
-						<h3>{{user.total_score}} point!</h3>
+						<h3>{{rank_total.0.nickname}}</h3>
+						<h3>{{rank_total.0.total_score}} point!</h3>
 						<div class="scoreDiv">
 							<div class="score">
 								<img src="{% static 'image/poopIcon_white.png' %}" alt="큰거" class="scoreImg">
-								<p>{{user.big_score}}</p>
+								<p>{{rank_total.0.big_score}}</p>
 							</div>
 							<div class="score">
 								<img src="{% static 'image/peeIcon_white.png' %}" alt="작은거" class="scoreImg">
-								<p>{{user.small_score}}</p>
+								<p>{{rank_total.0.small_score}}</p>
 							</div>
 							<div class="score">
 								<img src="{% static 'image/fartIcon_white.svg' %}" alt="가스" class="scoreImg">
-								<p>{{user.gas_score}}</p>
+								<p>{{rank_total.0.gas_score}}</p>
 							</div>
 						</div>
 					</div>
@@ -57,20 +56,28 @@
 				<a>
 					<div class="textbox">
 						<h3>2위</h3>
-						<h3>(닉네임)</h3>
-						<h3>(score)point!</h3>
+						<div class="profile">
+							{% if rank_total.1.profile %}
+								<img src="{{rank_total.1.profile.url}}" alt="사진">
+							<!-- user의 프로필 사진이 없을 경우 -->
+							{% else %}
+								<img src="{% static 'image/user.png' %}" width="200px" alt="">
+							{% endif %}
+						</div>
+						<h3>{{rank_total.1.nickname}}</h3>
+						<h3>{{rank_total.1.total_score}} point!</h3>
 						<div class="scoreDiv">
 							<div class="score">
 								<img src="{% static 'image/poopIcon_white.png' %}" alt="큰거" class="scoreImg">
-								<p>(score)</p>
+								<p>{{rank_total.1.big_score}}</p>
 							</div>
 							<div class="score">
 								<img src="{% static 'image/peeIcon_white.png' %}" alt="작은거" class="scoreImg">
-								<p>(score)</p>
+								<p>{{rank_total.1.small_score}}</p>
 							</div>
 							<div class="score">
 								<img src="{% static 'image/fartIcon_white.svg' %}" alt="가스" class="scoreImg">
-								<p>(score)</p>
+								<p>{{rank_total.1.gas_score}}</p>
 							</div>
 						</div>
 					</div>
@@ -81,20 +88,28 @@
 				<a>
 					<div class="textbox">
 						<h3>3위</h3>
-						<h3>(닉네임)</h3>
-						<h3>(score)point!</h3>
+						<div class="profile">
+							{% if rank_total.2.profile %}
+								<img src="{{rank_total.2.profile.url}}" alt="사진">
+							<!-- user의 프로필 사진이 없을 경우 -->
+							{% else %}
+								<img src="{% static 'image/user.png' %}" width="200px" alt="">
+							{% endif %}
+						</div>	
+						<h3>{{rank_total.2.nickname}}</h3>
+						<h3>{{rank_total.2.total_score}} point!</h3>
 						<div class="scoreDiv">
 							<div class="score">
 								<img src="{% static 'image/poopIcon_white.png' %}" alt="큰거" class="scoreImg" id="poop">
-								<p>(score)</p>
+								<p>{{rank_total.2.big_score}}</p>
 							</div>
 							<div class="score">
 								<img src="{% static 'image/peeIcon_white.png' %}" alt="작은거" class="scoreImg" id="pee">
-								<p>(score)</p>
+								<p>{{rank_total.2.small_score}}</p>
 							</div>
 							<div class="score">
 								<img src="{% static 'image/fartIcon_white.svg' %}" alt="가스" class="scoreImg" id="fart">
-								<p>(score)</p>
+								<p>{{rank_total.2.gas_score}}</p>
 							</div>
 						</div>
 					</div>
