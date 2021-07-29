@@ -24,16 +24,16 @@
             <!-- 헤더 중앙 메뉴 -->
             <div class="center-area">
                 <div class="nav-bar-current-title">
-                    <a href="{% url 'home' %}" class="nav-bar-title">통합 차트</a>
+                    <a href="{% url 'total-rank' %}" class="nav-bar-title">통합 차트</a>
                 </div>
                 <div>
-                    <a href="" class="nav-bar-title">대변 차트</a>
+                    <a href="{% url 'big-rank' %}" class="nav-bar-title">대변 차트</a>
                 </div>
                 <div>
-                    <a href="" class="nav-bar-title">소변 차트</a>
+                    <a href="{% url 'small-rank' %}" class="nav-bar-title">소변 차트</a>
                 </div>
                 <div>
-                    <a href="" class="nav-bar-title">방귀 차트</a>
+                    <a href="{% url 'gas-rank' %}" class="nav-bar-title">방귀 차트</a>
                 </div>
             </div>
             <!-- 헤더 오른쪽 메뉴 -->
