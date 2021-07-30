@@ -28,24 +28,17 @@
                     </ul>
                 </div>
                 <div>
-                    <div>
-                        <div class="chart-line">
-                            <a href=""  class="chart-data">
-                                <p class="chart-nav-content">1</p>
-                                <img class="chart-nav-content profile" src="" alt="프로필">
-                                <p class="chart-nav-content">채희찬</p>
-                                <p class="chart-nav-content">150점</p>
-                                <p class="chart-nav-content">50점</p>
-                                <p class="chart-nav-content">50점</p>
-                                <p class="chart-nav-content current-content">250점</p>
-                            </a>
-                        </div>
-                    </div>
+                    <script>
+                        var count = 1;
+                    </script>
                     {% for row in total_rank %}
                         <div class="chart-data">
                             <div class="chart-nav-content">
-                                <!-- 등수를 어떻게 처리해야 할지 (user에 넣을지 for로 계산해야 할지) -->
-                                <strong></strong>
+                                <strong><p id="place"></p></strong>
+                                <script>
+                                    document.getElementById("place").innerText = count;
+                                    count = count + 1;
+                                </script>
                             </div>
                             <div class="chart-nav-content">
                                 {% if row.profile %}
