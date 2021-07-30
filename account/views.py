@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.hashers import check_password
 from .forms import CustomUserChangeForm
 from django.contrib.auth.forms import UserChangeForm
+from django.core.paginator import Paginator
 # from django.contrib.auth.decorators import login_required
 
 from .models import User
@@ -116,10 +117,13 @@ def user_update(request, id) :
     else :
         return render(request, 'update.html')
 
-
-
+# 히스토리
 def history(request) :
     print("sakfdds", request.user)
     boards = Board.objects.all()
     board_list = boards.filter(author = request.user)
-    return render(request, 'history.html', {'board_list' : board_list})
+    #
+    paginator = Paginator(board_list, 5)
+    page_number = request.GET.get('page')
+    page = paginator.get_page(page_number)
+    return render(request, 'history.html', {'board_list' : page}) #{'board_list' : page}

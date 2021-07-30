@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}마이페이지{% endblock %}
-{%block link%}{%static 'css/mypage.css'%}{%endblock%}
+{%block link%}{%static 'css/mypage4.css'%}{%endblock%}
 
 {% block content %}
 
@@ -31,11 +31,66 @@
                 <div class="text">
                     <div class="title">나의 기록들</div>
                     <div class="info">
+                        
+                        <!-- 
+                        {% if board_list %}
+                            {% for b in board_list %}
+                            <a href="{% url 'detail' b.id %}">
+                                <li>{{b.body}}</li>
+                                <li>{{b.id}}</li>
+                            </a>
+                            <hr>
+                            {% endfor %}
+                        {% endif %}
+                        -->
+                        
+                        <table>
+                            <thead>
+                                <tr class="headLine">
+                                    <td class="imgLine"><h5>날짜 및 시간</h5></td>
+                                    <td class="textLine"><h5>종류</h5></td>
+                                    <td class="textLine"><h5>점수</h5></td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% if board_list %}
+                                    {% for b in board_list %}                     
+                                    <tr>
+                                        <td class="imgLine">
+                                            <div class="room">
+                                                <a href="{% url 'detail' b.id %}">{{b.created_at}}</a>
+                                            </div>
+                                        </td>
+                                        <td class="textLine">
+                                            <div class="room">
+                                                {% if b.choice == 'big' %}
+                                                <img src="{% static 'image/poopIcon.png' %}" alt="큰거" class="scoreImg" width="30px">
+                                                {% endif %}
+                                                {% if b.choice == 'small' %}
+                                                <img src="{% static 'image/peeIcon.png' %}" alt="작은거" class="scoreImg" width="40px">                                                    
+                                                {% endif %}
+                                                {% if b.choice == 'gas' %}
+                                                <img src="{% static 'image/fartIcon.png' %}" alt="방구" class="scoreImg" width="30px">                                                    
+                                                {% endif %}
+                                            </div>
+                                        </td>
+                                        <td class="textLine">
+                                            <div class="room">
+                                                {{b.total_score}}점
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                {% endif %}
+                            </tbody>
+                        </table>
+                        
+                        <!-- 
                         <ul class="ul-list">
                             <li>작성일</li>
-                            <li><img src="{% static 'image/poopIcon.png'%}" width="50px"></li>
-                            <li><img src="{% static 'image/peeIcon.png'%}" width="50px"></li>
-                            <li><img src="{% static 'image/fartIcon.svg'%}" width="50px"></li>
+                            <li><img src="{% static 'image/poopIcon.png'%}" width="30px"></li>
+                            <li><img src="{% static 'image/peeIcon.png'%}" width="40px"></li>
+                            <li><img src="{% static 'image/fartIcon.svg'%}" width="30px"></li>
                             <li>Total</li>
                         </ul>
                         <ul class="ul-list">
@@ -49,6 +104,8 @@
                                 {% endfor %}
                             {% endif %}
                         </ul>
+                         -->
+
                     </div>
                 </div>
             </div>
