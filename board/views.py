@@ -79,6 +79,32 @@ def upload(request) :
 # 글 삭제 메서드
 def delete(request, id) :
     delete_board = Board.objects.get(id = id)
+    user_id = request.user.id
+
+     # 큰글 삭제할 때
+    if delete_board.choice == 'big' :
+
+        save_score = User.objects.get(id = user_id)
+        save_score.big_score -= 5
+        save_score.total_score -= 5
+        save_score.save()
+        
+    # 작은글 삭제할 때
+    if delete_board.choice == 'small' :
+
+        save_score = User.objects.get(id = user_id)
+        save_score.small_score -= 3
+        save_score.total_score -= 3
+        save_score.save()
+
+    # 방구글 삭제할 때
+    if delete_board.choice == 'gas' :
+
+        save_score = User.objects.get(id = user_id)
+        save_score.gas_score -= 1
+        save_score.total_score -= 1
+        save_score.save()
+
     delete_board.delete()
     return redirect('home')
 
