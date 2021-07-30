@@ -33,8 +33,12 @@
                     <div class="info">
                         <form method="POST" action="{% url 'update' user.id %}" enctype="multipart/form-data">
                             {% csrf_token %}
-                            <p>닉네임 : <input type="text" name="nickname" value="{{ user.nickname }}"></p>
-                            <p>이미지 : <input type="file" name='profile' value="{{ user.profile }}"></p>
+                            <span>닉네임 : </span>
+                            <input type="text" class="input" value="{{ user.nickname }}" name="nickname" placeholder="닉네임">
+                            <br>
+                            <span>프로필 이미지 : </span>
+                            <input type="file" class="input" value="{{ user.profile }}" name="profile">
+                            <br>
                             <button type="submit" class="submit">수정하기</button>
                         </form>
                     </div>

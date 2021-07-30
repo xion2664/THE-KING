@@ -76,7 +76,15 @@
                                         </td>
                                         <td class="textLine">
                                             <div class="room">
-                                                {{b.total_score}}점
+                                                {% if b.choice == 'big' %}
+                                                5점
+                                                {% endif %}
+                                                {% if b.choice == 'small' %}
+                                                3점                                                   
+                                                {% endif %}
+                                                {% if b.choice == 'gas' %}
+                                                1점                                            
+                                                {% endif %}
                                             </div>
                                         </td>
                                     </tr>
@@ -106,6 +114,19 @@
                         </ul>
                          -->
 
+                        <div class="page">
+                            {%if board_list.has_previous%}
+                            <a href='?page={{board_list.previous_page_number}}'><</a>
+                            {%endif%}
+
+                            <span>{{board_list.number}}</span>
+                            <span>/</span>
+                            <span>{{board_list.paginator.num_pages}}</span>
+
+                            {%if board_list.has_next%}
+                            <a href='?page={{board_list.next_page_number}}'>></a>
+                            {%endif%}
+                        </div>
                     </div>
                 </div>
             </div>
