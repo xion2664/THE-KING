@@ -11,37 +11,47 @@
         <hr>
         <div class="content">
             <div class="list">
-                <label for="home" class="selected">
-                    <a href="{% url 'mypage' %}"></a><span class="title">나의 정보</span></a>
-                </label>
-                <label for="blog" class="nonselected" >
-                    <a href="{% url 'update' user.id %}"><span class="title">개인정보 수정</span></a>
-                </label>
-                <label for="help" class="nonselected">
-                    <a href="{% url 'rank' %}"><span class="title">점수 및 순위</span></a>
-                </label>
-                <label for="code" class="nonselected">
-                    <a href="{% url 'history' %}"><span class="title">나의 기록들</span></a>
-                </label>
-                <label for="about" class="nonselected">
-                    <a href="{% url 'delete' %}"><span class="title">회원 탈퇴</span></a>
-                </label>
+                <a class="selected" href="{% url 'mypage' %}">
+                    <span class="title">나의 정보</span>
+                </a>
+                <a class="nonselected" href="{% url 'update' user.id %}">
+                    <span class="title">개인정보 수정</span>
+                </a>
+                <a class="nonselected" href="{% url 'rank' %}">
+                    <span class="title">점수 및 순위</span>
+                </a>
+                <a class="nonselected" href="{% url 'history' %}">
+                    <span class="title">나의 기록들</span>
+                </a>
+                <a class="nonselected" href="{% url 'delete' %}">
+                    <span class="title">회원 탈퇴</span>
+                </a>
             </div>
             <div class="text-content">
                 <div class="text">
                     <div class="title">나의 정보</div>
                     <div class="info">
-                        <h3>ID : {{user.username}}</h3>
-                        <h3>닉네임 : {{user.nickname}}</h3>
-                        {% if user.profile %}
-                        <img src="{{user.profile.url}}" width="200px">
-                        {% endif %}
-                        <!--
-                        <img src="{% static 'image/poopIcon.png'%}" width="50px"><p> : {{user.big_score}}</p>
-                        <img src="{% static 'image/peeIcon.png'%}" width="50px"><p> : {{user.small_score}}</p>
-                        <img src="{% static 'image/fartIcon.svg'%}" width="50px"><p> : {{user.gas_score}}</p>
-                        <p>Total : {{user.total_score}}</p>
-                        -->
+                        <div class="profile">
+                            {% if user.profile %}
+                            <img src="{{user.profile.url}}" class="profilePic" alt="프로필사진">
+                            {% else %}
+							<img src="{% static 'image/user.png' %}" class="profilePic" alt="디폴트사진">
+                            {% endif %}
+                        </div>
+                        <div class="idNickname">
+                            <div class="id">
+                                <h3>ID</h3>
+                                <h4>{{user.username}}</h4>    
+                            </div>
+                            <div class="nickname">
+                                <h3>닉네임</h3>
+                                {% if user.nickname %}
+                                <h4>{{user.nickname}}</h4> 
+                                {% else %}
+                                <h4>[닉네임을 입력해주세요]</h4>
+                                {% endif %}
+                            </div>      
+                        </div>
                     </div>
                 </div>
             </div>
