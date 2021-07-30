@@ -91,7 +91,7 @@ a {
 }
 .info {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   margin-left: 20px;
@@ -146,9 +146,6 @@ td {
   border-bottom: 1px solid #dddddd;
   padding: 10px;
 }
-tr {
-  height: 50px;
-}
 .headLine, .lastLine {
   height: 30px;
   font-weight: 900;
@@ -162,8 +159,17 @@ tr {
 }
 .room {
   width: 100%;
-  height: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.page {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.page span, a {
+  margin: 5px;
 }

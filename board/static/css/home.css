@@ -170,3 +170,7 @@
     height: 100%;
     object-fit: cover;
 }
+.blank {
+    width: 250px;
+    height: 250px; 
+}

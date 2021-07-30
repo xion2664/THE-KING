@@ -175,3 +175,36 @@ tr {
 
 
 /* delete */
+.delete p {
+  margin-bottom: 10px;
+  width: 100%;
+}
+.escape {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+.input {
+  width: 300px;
+  border: solid #dddddd 1px;
+  border-radius: 30px;
+  color: #202020;
+  padding: 15px 20px 15px 20px;
+  margin: 5px 10px 5px 0px;
+  text-align: left;
+  font-size: 15px;
+}
+.submit {
+  width: 100px;
+  background-color: #AACDFF;
+  border: none;
+  border-radius: 30px;
+  color: #fff;
+  padding: 15px 20px 15px 20px;
+  margin: 20px 0px 20px 0px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 900;
+  cursor: pointer;
+}
