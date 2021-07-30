@@ -11,7 +11,6 @@ class User(AbstractUser) :
     gas_score = models.IntegerField(default=0, verbose_name = "방귀점수")
     total_score = models.IntegerField(default=0, verbose_name = "총합")
 
-
 class history(models.Model) :
     board = models.ForeignKey(Board, on_delete=models.CASCADE)
 
