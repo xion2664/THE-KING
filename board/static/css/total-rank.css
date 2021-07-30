@@ -96,18 +96,30 @@ html{
     line-height: 110px;
     text-decoration-line: none;
     border-bottom: 1px solid #b4846c;
+    display: flex;
+    align-items: center;
 }
 
 .chart-nav-content{
+    padding: 10px 0ox;
     width: 100px;
+    height: 100px;
     font-size: 1.8rem;
     text-align: center;
     color: #B4846C;
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 70%;
+    overflow: hidden;
 }
 
 .current-content{
     font-weight: bold;
+}
+
+.profile{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
