@@ -35,24 +35,28 @@
 }
 .content {
   display: flex;
-  align-items: center;
   justify-content: space-between;
   margin-top: 30px;
+  height: 80%;
 }
 .content .list {
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   width: 22%;
   margin-right: 50px;
   position: relative;
 }
+a {
+  text-decoration-line : none;
+}
 .selected {
   height: 60px;
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 500;
   line-height: 60px;
   cursor: pointer;
-  padding-left: 25px;
+  padding-left: 15px;
   transition: all 0.5s ease;
   background: #B4846C;
   z-index: 12;
@@ -62,11 +66,11 @@
 }
 .nonselected {
   height: 60px;
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 500;
   line-height: 60px;
   cursor: pointer;
-  padding-left: 25px;
+  padding-left: 15px;
   transition: all 0.5s ease;
   color: #B4846C;
   z-index: 12;
@@ -83,18 +87,91 @@
 .title {
   font-size: 20px;
   font-weight: 900;
-  margin: 7px;
+  margin: 20px 20px 40px 20px;
 }
-.content .text p {
-  text-align: justify;
+.info {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 20px;
 }
 
+/* mypage */
+.profile {
+  width: 200px;
+  height: 200px; 
+  border-radius: 70%;
+  overflow: hidden;
+  margin: 30px 10px 10px 20px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+.profilePic {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  text-align: center;
+}
+.idNickname {
+  margin-left: 20px;
+}
+.id, .nickname {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.content .text h3 {
+  font-size: 17px;
+  font-weight: 900;
+  margin: 10px;
+  width: 50px;
+}
+.content .text h4 {
+  font-size: 17px;
+  font-weight: 100;
+  margin: 10px;
+}
+
+/* update */
+
+
+/* rank */
 table {
   width: 100%;
   border-top: 1px solid #202020;
+  border-bottom: 1px solid #202020;
   border-collapse: collapse;
+  text-align: center;
+  vertical-align: middle;
 }
-th, td {
+td {
   border-bottom: 1px solid #dddddd;
   padding: 10px;
 }
+tr {
+  height: 70px;
+}
+.headLine, .lastLine {
+  height: 30px;
+  font-weight: 900;
+}
+.headLine, .lastLine td {
+  border-top: 1px solid #202020;
+  border-bottom: 1px solid #202020;
+}
+.imgLine, .textLine {
+  width: 200px;
+}
+.room {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* history */
+
+
+/* delete */

@@ -22,7 +22,6 @@ html{
 
 .main-contents-box{
     width: 1000px;
-    height: 800px;
     border: 0.5px solid #dddddd;
     border-radius: 12px;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);;
@@ -52,9 +51,10 @@ html{
     width: 80px;
     height: 40px;
     line-height: 30px;
-    margin-right: 20px;
+    margin-left: 20px;
     border-radius: 10px;
     font-size: 1.6rem;
+    box-shadow: 3px 3px 5px #888888;
 }
 
 .white-btn{
@@ -119,4 +119,25 @@ html{
     border-radius: 10px;
     border: 2px solid #B4846C;
     resize: none;
+}
+
+.button-area{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0px;
+}
+
+.image-text{
+    font-family: 'NanumSquareRound';
+    color: #B4846C;
+    border-radius: 10px;
+    border: 2px solid #B4846C;
+    width: 140px;
+}
+
+.image-label{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

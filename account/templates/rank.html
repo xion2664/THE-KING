@@ -11,49 +11,90 @@
         <hr>
         <div class="content">
             <div class="list">
-                <label for="home" class="nonselected">
-                    <a href="{% url 'mypage' %}"><span class="title">나의 정보</span></a>
-                </label>
-                <label for="blog" class="nonselected" >
-                    <a href="{% url 'update' user.id %}"><span class="title">개인정보 수정</span></a>
-                </label>
-                <label for="help" class="selected">
-                    <a href="{% url 'rank' %}"><span class="title">점수 및 순위</span></a>
-                </label>
-                <label for="code" class="nonselected">
-                    <a href="{% url 'history' %}"><span class="title">나의 기록들</span></a>
-                </label>
-                <label for="about" class="nonselected">
-                    <a href="{% url 'delete' %}"><span class="title">회원 탈퇴</span></a>
-                </label>
+                <a class="nonselected" href="{% url 'mypage' %}">
+                    <span class="title">나의 정보</span>
+                </a>
+                <a class="nonselected" href="{% url 'update' user.id %}">
+                    <span class="title">개인정보 수정</span>
+                </a>
+                <a class="selected" href="{% url 'rank' %}">
+                    <span class="title">점수 및 순위</span>
+                </a>
+                <a class="nonselected" href="{% url 'history' %}">
+                    <span class="title">나의 기록들</span>
+                </a>
+                <a class="nonselected" href="{% url 'delete' %}">
+                    <span class="title">회원 탈퇴</span>
+                </a>
             </div>
             <div class="text-content">
                 <div class="text">
                     <div class="title">점수 및 순위</div>
                     <div class="info">
                         <table>
+                            <thead>
+                                <tr class="headLine">
+                                    <td class="imgLine"><h5>종류</h5></td>
+                                    <td class="textLine"><h5>점수</h5></td>
+                                    <td class="textLine"><h5>순위</h5></td>
+                                </tr>
+                            </thead>
                             <tbody>
                                 <tr>
-                                    <td><img src="{% static 'image/poopIcon.png' %}" alt="큰거" class="scoreImg" width="50px"></td>
-                                    <td>{{ user.big_score }}</td>
-                                    <td>{{ my_rank_big }}</td>
+                                    <td class="imgLine">
+                                        <div class="room">
+                                            <img src="{% static 'image/poopIcon.png' %}" alt="큰거" class="scoreImg" width="30px">
+                                        </div>
+                                    </td>
+                                    <td class="textLine">
+                                        <div class="room">
+                                            {{ user.big_score }} point
+                                        </div>
+                                    </td>
+                                    <td class="textLine">
+                                        <div class="room">
+                                            {{ my_rank_big }}위
+                                        </div>
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <td><img src="{% static 'image/peeIcon.png' %}" alt="작은거" class="scoreImg" width="60px"></td>
-                                    <td>{{ user.small_score }}</td>
-                                    <td>{{ my_rank_small }}</td>
-                                    
+                                    <td class="imgLine">
+                                        <div class="room">
+                                            <img src="{% static 'image/peeIcon.png' %}" alt="작은거" class="scoreImg" width="40px">
+                                        </div>
+                                    </td>
+                                    <td class="textLine">
+                                        <div class="room">
+                                            {{ user.small_score }} point
+                                        </div>
+                                    </td>
+                                    <td class="textLine">
+                                        <div class="room">
+                                            {{ my_rank_small }}위
+                                        </div>
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <td><img src="{% static 'image/fartIcon.png' %}" alt="방구" class="scoreImg" width="55px"></td>
-                                    <td>{{ user.gas_score }}</td>
-                                    <td>{{ my_rank_gas }}</td>
-                                    
+                                    <td class="imgLine">
+                                        <div class="room">
+                                            <img src="{% static 'image/fartIcon.png' %}" alt="방구" class="scoreImg" width="30px">
+                                        </div>
+                                    </td>
+                                    <td class="textLine">
+                                        <div class="room">
+                                            {{ user.gas_score }} point
+                                        </div>
+                                    </td>
+                                    <td class="textLine">
+                                        <div class="room">
+                                            {{ my_rank_gas }}위
+                                        </div>
+                                    </td>
                                 </tr>
-                                <tr>
-                                    <td>Total</td>
-                                    <td>{{ user.total_score }}</td>
-                                    <td>{{ my_rank_total }}</td>
+                                <tr class="lastLine">
+                                    <td class="imgLine">Total</td>
+                                    <td class="textLine">{{ user.total_score }} point</td>
+                                    <td class="textLine">{{ my_rank_total }}위</td>
                                 </tr>
                             </tbody>
                         </table>
