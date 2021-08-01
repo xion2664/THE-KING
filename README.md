@@ -29,7 +29,7 @@
 - `account/models.py history 클래스 주석처리 취소`
 - `python manage.py makemigrations account`
 - `python manage.py migrate`
-5. 관지자 생성하기
+5. 관리자 생성하기
 - `python manage.py createsuperuser`
 6. 서버 실행
 - `python mange.py runserver`
